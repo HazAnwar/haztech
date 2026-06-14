@@ -11,12 +11,12 @@ export default function LeapLauncher() {
         </div>
         <h1 className='gradient-text'>Leap Launcher</h1>
         <p>A simple and elegant launcher for your Android Mobile & TV.</p>
-        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
-          <a href='https://play.google.com/store/apps/details?id=com.haztech.launcher' target='_blank' rel='noopener noreferrer' className='btn btn-primary'>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', marginTop: '1rem' }}>
+          <a href='https://play.google.com/store/apps/details?id=com.haztech.launcher' target='_blank' rel='noopener noreferrer' className='btn btn-primary' style={{ width: '100%', maxWidth: '300px' }}>
             <Download size={20} /> Download on Play Store
           </a>
-          <a href='https://github.com/HazAnwar/leap-launcher/releases/latest' target='_blank' rel='noopener noreferrer' className='btn btn-secondary'>
-            <GitBranch size={20} /> Download APK
+          <a href='https://github.com/HazAnwar/leap-launcher/releases/latest' target='_blank' rel='noopener noreferrer' className='btn btn-secondary' style={{ width: '100%', maxWidth: '300px' }}>
+            <GitBranch size={20} /> Download APK (GitHub)
           </a>
         </div>
       </section>

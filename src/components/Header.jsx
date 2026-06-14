@@ -49,9 +49,9 @@ export default function Header() {
           <Link to='/' className='nav-link'>
             Home
           </Link>
-          <a href='#apps' className='nav-link'>
+          <Link to='/apps' className='nav-link'>
             Our Apps
-          </a>
+          </Link>
           <a href='mailto:info@haztech.services' className='nav-link'>
             Contact
           </a>

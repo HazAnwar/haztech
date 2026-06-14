@@ -11,11 +11,11 @@ export default function Markaz() {
         </div>
         <h1 className='gradient-text'>Markaz</h1>
         <p>Your companion for Islamic prayer times, Qibla direction, and more.</p>
-        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
-          <a href='https://github.com/HazAnwar/markaz-app/releases/latest' target='_blank' rel='noopener noreferrer' className='btn btn-primary'>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', marginTop: '1rem' }}>
+          <a href='https://github.com/HazAnwar/markaz-app/releases/latest' target='_blank' rel='noopener noreferrer' className='btn btn-primary' style={{ width: '100%', maxWidth: '300px' }}>
             <Download size={20} /> Download APK
           </a>
-          <a href='https://github.com/HazAnwar/markaz-app' target='_blank' rel='noopener noreferrer' className='btn btn-secondary'>
+          <a href='https://github.com/HazAnwar/markaz-app' target='_blank' rel='noopener noreferrer' className='btn btn-secondary' style={{ width: '100%', maxWidth: '300px' }}>
             <GitBranch size={20} /> View on GitHub
           </a>
         </div>
