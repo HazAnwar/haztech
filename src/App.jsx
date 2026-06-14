@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import Privacy from './pages/Privacy';
@@ -10,7 +10,7 @@ import Markaz from './pages/Markaz';
 
 export default function App() {
   return (
-    <Router>
+    <Router basename={import.meta.env.BASE_URL}>
       <Layout>
         <Routes>
           <Route path='/' element={<Home />} />
