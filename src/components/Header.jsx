@@ -15,18 +15,18 @@ export default function Header() {
   };
 
   return (
-    <header className="header container">
-      <div className="header-container glass">
-        <Link to="/" className="header-logo">
-          <Code2 size={24} color="var(--primary-color)" />
+    <header className='header container'>
+      <div className='header-container glass'>
+        <Link to='/' className='header-logo'>
+          <Code2 size={24} color='var(--primary-color)' />
           <span>HazTech</span>
         </Link>
         
-        <nav className="header-nav">
-          <Link to="/" className="nav-link">Home</Link>
-          <a href="#apps" className="nav-link">Our Apps</a>
-          <a href="mailto:HazTechServices@gmail.com" className="nav-link">Contact</a>
-          <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle theme">
+        <nav className='header-nav'>
+          <Link to='/' className='nav-link'>Home</Link>
+          <a href='#apps' className='nav-link'>Our Apps</a>
+          <a href='mailto:HazTechServices@gmail.com' className='nav-link'>Contact</a>
+          <button onClick={toggleTheme} className='theme-toggle' aria-label='Toggle theme'>
             {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
           </button>
         </nav>
