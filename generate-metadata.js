@@ -70,4 +70,34 @@ const leapHtml = generateHtml(
 fs.mkdirSync(path.join(distDir, 'leap-launcher'), { recursive: true });
 fs.writeFileSync(path.join(distDir, 'leap-launcher', 'index.html'), leapHtml);
 
-console.log('Successfully generated specific metadata for /markaz and /leap-launcher routes.');
+// --- Apps ---
+const appsHtml = generateHtml(
+  'HazTech Services | Apps',
+  'Explore our portfolio of premium mobile and web applications.',
+  '/apps',
+  '/og-image.jpg'
+);
+fs.mkdirSync(path.join(distDir, 'apps'), { recursive: true });
+fs.writeFileSync(path.join(distDir, 'apps', 'index.html'), appsHtml);
+
+// --- Privacy Policy ---
+const privacyHtml = generateHtml(
+  'HazTech Services | Privacy Policy',
+  'Read the privacy policy for HazTech Services and our applications.',
+  '/privacy',
+  '/og-image.jpg'
+);
+fs.mkdirSync(path.join(distDir, 'privacy'), { recursive: true });
+fs.writeFileSync(path.join(distDir, 'privacy', 'index.html'), privacyHtml);
+
+// --- Terms of Service ---
+const termsHtml = generateHtml(
+  'HazTech Services | Terms of Service',
+  'Read the terms of service for HazTech Services and our applications.',
+  '/terms',
+  '/og-image.jpg'
+);
+fs.mkdirSync(path.join(distDir, 'terms'), { recursive: true });
+fs.writeFileSync(path.join(distDir, 'terms', 'index.html'), termsHtml);
+
+console.log('Successfully generated specific metadata for /markaz, /leap-launcher, /apps, /privacy, and /terms routes.');
