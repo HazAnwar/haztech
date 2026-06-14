@@ -11,8 +11,11 @@ import Markaz from './pages/Markaz';
 import NotFound from './pages/NotFound';
 
 export default function App() {
+  const isGithub = window.location.hostname.includes('github.io');
+  const basePath = isGithub ? '/haztech' : '/';
+
   return (
-    <Router basename={import.meta.env.BASE_URL}>
+    <Router basename={basePath}>
       <ScrollToTop />
       <Layout>
         <Routes>
