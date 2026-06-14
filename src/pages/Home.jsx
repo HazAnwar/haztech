@@ -15,11 +15,11 @@ export default function Home() {
           our suite of applications designed to deliver exceptional user
           experiences.
         </p>
-        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
-          <Link to='/apps' className='btn btn-primary'>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', width: '100%' }}>
+          <Link to='/apps' className='btn btn-primary' style={{ width: '100%', maxWidth: '280px' }}>
             Explore Apps <ArrowRight size={20} />
           </Link>
-          <a href='mailto:info@haztech.services' className='btn btn-secondary'>
+          <a href='mailto:info@haztech.services' className='btn btn-secondary' style={{ width: '100%', maxWidth: '280px' }}>
             Contact Us
           </a>
         </div>
