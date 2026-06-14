@@ -47,6 +47,9 @@ const generateHtml = (title, desc, urlPath, imageUrl) => {
     newHtml = newHtml.substring(0, startIndex) + startMarker + metadataBlock + endMarker + newHtml.substring(endIndex);
   }
   
+  // Fix relative asset paths for subdirectories so the preload scanner doesn't 404
+  newHtml = newHtml.replace(/(src|href)="\.\/assets\//g, '$1="../assets/');
+  
   return newHtml;
 };
 
