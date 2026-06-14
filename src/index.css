@@ -187,7 +187,8 @@ a:hover {
 /* Hero Section */
 .hero {
   text-align: center;
-  padding: 6rem 0;
+  min-height: calc(100dvh - 8rem);
+  padding: 2rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -284,7 +285,7 @@ a:hover {
   }
 
   .hero {
-    padding: 4rem 0;
+    padding: 2rem 0;
   }
 
   .footer {
@@ -315,6 +316,11 @@ a:hover {
 
   .main-content {
     padding-top: 10rem;
+  }
+
+  .hero {
+    min-height: calc(100dvh - 10rem);
+    padding: 2rem 0;
   }
 
   .hero h1 {
