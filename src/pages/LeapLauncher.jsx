@@ -14,7 +14,7 @@ export default function LeapLauncher() {
         <h1 className='gradient-text'>Leap Launcher</h1>
         <p>A simple and elegant launcher for your Android Mobile & TV.</p>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem', marginTop: '1.5rem', width: '100%' }}>
-          <a href='#placeholder-android-store' className='btn btn-primary' style={{ width: '100%', maxWidth: '320px' }}>
+          <a href='https://play.google.com/store/apps/details?id=com.haztech.launcher' target='_blank' rel='noopener noreferrer' className='btn btn-primary' style={{ width: '100%', maxWidth: '320px' }}>
             <IconAndroid size={20} /> Download on Play Store
           </a>
           
