@@ -4,7 +4,10 @@ import { Link } from 'react-router-dom';
 export default function Footer() {
   return (
     <footer className='footer container'>
-      <p>&copy; {new Date().getFullYear()} HazTech Services Limited. All rights reserved.</p>
+      <p className='copyright'>
+        &copy; {new Date().getFullYear()} HazTech Services Limited.<br />
+        All rights reserved.
+      </p>
       <div className='footer-nav'>
         <a href='https://github.com/HazAnwar' target='_blank' rel='noopener noreferrer' className='nav-link'>GitHub</a>
         <Link to='/privacy' className='nav-link'>Privacy Policy</Link>
