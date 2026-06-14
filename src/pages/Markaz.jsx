@@ -86,8 +86,8 @@ export default function Markaz() {
           {showAll && (
             <div className='platform-slider' style={{ display: 'flex', overflowX: 'auto', scrollSnapType: 'x mandatory', gap: '1.5rem', padding: '1rem 0.5rem', width: '100%', WebkitOverflowScrolling: 'touch', marginTop: '0.5rem' }}>
               {[
-                { id: 'android', name: 'Android', desc: 'Includes Wear OS', icon: <IconAndroid size={32} />, storeUrl: 'https://play.google.com/store/apps/details?id=com.haztech.prayer' },
-                { id: 'ios', name: 'iOS', desc: 'Includes iPadOS & watchOS', icon: <IconApple size={32} />, storeUrl: 'https://apps.apple.com/us/app/markaz/id0000000000' },
+                { id: 'android', name: 'Android', desc: 'Mobile & WearOS', icon: <IconAndroid size={32} />, storeUrl: 'https://play.google.com/store/apps/details?id=com.haztech.prayer' },
+                { id: 'ios', name: 'iOS', desc: 'iOS, iPadOS & watchOS', icon: <IconApple size={32} />, storeUrl: 'https://apps.apple.com/us/app/markaz/id0000000000' },
                 { id: 'mac', name: 'macOS', desc: 'Apple Silicon & Intel', icon: <IconApple size={32} />, storeUrl: 'https://apps.apple.com/us/app/markaz/id0000000000' },
                 { id: 'windows', name: 'Windows', desc: 'Windows 10 & 11', icon: <IconWindows size={32} />, storeUrl: 'https://apps.microsoft.com/store/detail/markaz/XYZ000000000' },
                 { id: 'linux', name: 'Linux', desc: 'Debian, Fedora, Ubuntu', icon: <IconLinux size={32} />, storeUrl: 'https://flathub.org/apps/details/org.haztech.markaz' }
