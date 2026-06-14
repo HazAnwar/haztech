@@ -7,7 +7,7 @@ import { IconApple, IconAndroid, IconWindows, IconLinux } from '../components/Pl
 export default function Markaz() {
   const [searchParams] = useSearchParams();
   const platformParam = searchParams.get('platform');
-  const redirectParam = searchParams.get('redirect');
+  const shouldRedirect = searchParams.has('redirect');
   const [showAll, setShowAll] = useState(false);
 
   const getPlatformInfo = () => {
@@ -45,10 +45,10 @@ export default function Markaz() {
   const downloadText = platformInfo.name ? `Download for ${platformInfo.name}` : 'Download App';
 
   useEffect(() => {
-    if (redirectParam === 'true' && platformInfo.storeUrl) {
+    if (shouldRedirect && platformInfo.storeUrl) {
       window.location.href = platformInfo.storeUrl;
     }
-  }, [redirectParam, platformInfo.storeUrl]);
+  }, [shouldRedirect, platformInfo.storeUrl]);
 
   return (
     <div className='app-page'>
