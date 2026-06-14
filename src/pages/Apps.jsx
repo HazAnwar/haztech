@@ -34,7 +34,7 @@ export default function Apps() {
             <div>
               <h2 style={{ fontSize: '1.75rem', marginBottom: '0.5rem' }}>Markaz</h2>
               <p style={{ color: 'var(--text-secondary)' }}>
-                An all-in-one beautifully designed application for Muslims — featuring accurate prayer times, qibla locator, Quran, and more.
+                An all-in-one beautifully designed application for Muslims - featuring accurate prayer times, qibla locator, Quran, and more.
               </p>
             </div>
             <Link to='/markaz' className='btn btn-secondary' style={{ marginTop: 'auto', alignSelf: 'flex-start' }}>

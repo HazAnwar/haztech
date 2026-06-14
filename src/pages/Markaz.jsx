@@ -73,7 +73,7 @@ export default function Markaz() {
           <img src={`${import.meta.env.BASE_URL}markaz.png`} alt='Markaz Icon' style={{ width: '96px', height: '96px', borderRadius: '24px', boxShadow: '0 12px 32px rgba(0,0,0,0.3)' }} />
         </div>
         <h1 className='gradient-text'>Markaz</h1>
-        <p>Your companion for Islamic prayer times, Qibla direction, and more.</p>
+        <p>Your all in one deen companion for Islamic prayer times, Qibla direction, and much more!</p>
         
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem', marginTop: '1.5rem', width: '100%' }}>
           <a href={platformInfo.storeUrl} className='btn btn-primary' style={{ width: '100%', maxWidth: '320px' }}>
@@ -123,6 +123,25 @@ export default function Markaz() {
       </section>
 
       <section style={{ padding: '4rem 0', textAlign: 'center' }}>
+        <h2 style={{ fontSize: '2.5rem', marginBottom: '2rem' }}>About Markaz</h2>
+        <p style={{ color: 'var(--text-secondary)' }}>
+          Assalamualaikum! Markaz is built for Muslims, by Muslims. Our goal is simple: to provide a one-stop app for all your Islamic needs without compromising on privacy or performance.
+        </p>
+        <br />
+        <p style={{ color: 'var(--text-secondary)' }}>
+          While there are many prayer apps out there, most of them are bloated, filled with ads, or secretly sell your data, so we built Markaz to be different. We guarantee zero ads, no data collection, no location tracking, and no intrusive permissions. 
+        </p>
+        <br />
+        <p style={{ color: 'var(--text-secondary)' }}>
+          We deliver all of this without compromise, ensuring a lightning-fast, lightweight experience with a beautiful, modern design with exceptional user experiences all whilst making sure to get the most out of your devices by integrating with the latest technologies and functionality available.
+        </p>
+        <br/>
+        <p style={{ color: 'var(--text-secondary)' }}>
+          We truly value each and every single user, we hope to help you to centre your deen. Jazak'Allah Khairan for your support!
+        </p>
+      </section>
+
+      <section style={{ padding: '4rem 0', textAlign: 'center' }}>
         <h2 style={{ fontSize: '2.5rem', marginBottom: '2rem' }}>Features</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem', textAlign: 'left' }}>
           <div className='glass' style={{ padding: '2rem', borderRadius: '1rem' }}>
@@ -136,6 +155,10 @@ export default function Markaz() {
           <div className='glass' style={{ padding: '2rem', borderRadius: '1rem' }}>
             <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>Ad-Free</h3>
             <p style={{ color: 'var(--text-secondary)' }}>A completely distraction-free, privacy-respecting experience with zero ads.</p>
+          </div>
+          <div className='glass' style={{ padding: '2rem', borderRadius: '1rem' }}>
+            <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>Privacy</h3>
+            <p style={{ color: 'var(--text-secondary)' }}>No tracking, no data collection and no dodgy deals.</p>
           </div>
         </div>
       </section>
