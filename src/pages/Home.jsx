@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight, Smartphone, Monitor, ShieldCheck } from 'lucide-react';
 
 export default function Home() {
@@ -53,10 +54,8 @@ export default function Home() {
               A simple, elegant, and blazing-fast launcher for your Android
               Mobile & TV. Available free on the Google Play Store.
             </p>
-            <a
-              href='https://play.google.com/store/apps/details?id=com.haztech.launcher'
-              target='_blank'
-              rel='noopener noreferrer'
+            <Link
+              to='/leap-launcher'
               style={{
                 color: 'var(--primary-color)',
                 fontWeight: '600',
@@ -66,7 +65,7 @@ export default function Home() {
               }}
             >
               View Leap Launcher <ArrowRight size={16} />
-            </a>
+            </Link>
           </div>
 
           <div
@@ -85,10 +84,8 @@ export default function Home() {
               An all-in-one beautifully designed application for Muslims —
               featuring accurate prayer times, qibla locator, Quran, and more.
             </p>
-            <a
-              href='https://github.com/HazAnwar/markaz-app/releases/latest'
-              target='_blank'
-              rel='noopener noreferrer'
+            <Link
+              to='/markaz'
               style={{
                 color: 'var(--primary-color)',
                 fontWeight: '600',
@@ -98,7 +95,7 @@ export default function Home() {
               }}
             >
               View Markaz <ArrowRight size={16} />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
