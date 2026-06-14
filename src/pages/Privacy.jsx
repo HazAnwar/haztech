@@ -17,7 +17,7 @@ export default function Privacy() {
           <strong>4. Authentication & Payments:</strong> We use secure third-party providers (like Google Sign-In and RevenueCat) for authentication and subscription management. We do not store your payment credentials.
           <br /><br />
           If you have any questions or concerns regarding our privacy practices,
-          please contact us at <a href='mailto:info@haztech.services' style={{ color: 'var(--primary-color)', textDecoration: 'underline' }}>info@haztech.services</a>.
+          please contact us at <a href='mailto:privacy@haztech.services' style={{ color: 'var(--primary-color)', textDecoration: 'underline' }}>privacy@haztech.services</a>.
         </p>
       </div>
     </div>

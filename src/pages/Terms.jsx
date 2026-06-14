@@ -15,7 +15,7 @@ export default function Terms() {
           HazTech Services Limited reserves the right to modify or terminate any services or applications at any time without prior notice.
           <br /><br />
           If you encounter any issues or need further assistance, please reach
-          out to our support team at <a href='mailto:info@haztech.services' style={{ color: 'var(--primary-color)', textDecoration: 'underline' }}>info@haztech.services</a>.
+          out to our support team at <a href='mailto:terms@haztech.services' style={{ color: 'var(--primary-color)', textDecoration: 'underline' }}>terms@haztech.services</a>.
         </p>
       </div>
     </div>
