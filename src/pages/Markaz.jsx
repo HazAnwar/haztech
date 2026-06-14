@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { ShieldCheck, GitBranch, Download, ChevronDown, ChevronUp } from 'lucide-react';
+import { GitBranch, Download, ChevronDown, ChevronUp } from 'lucide-react';
 import BugReport from '../components/BugReport';
 import { IconApple, IconAndroid, IconWindows, IconLinux } from '../components/PlatformIcons';
 
@@ -59,7 +59,7 @@ export default function Markaz() {
     return (
       <div style={{ height: '100%', minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '1rem' }}>
         <div className='animate-float'>
-          <ShieldCheck size={48} color='var(--primary-color)' />
+          <img src={`${import.meta.env.BASE_URL}markaz.png`} alt='Markaz Icon' style={{ width: '64px', height: '64px', borderRadius: '16px' }} />
         </div>
         <p style={{ color: 'var(--text-secondary)' }}>Redirecting to the store...</p>
       </div>
@@ -70,7 +70,7 @@ export default function Markaz() {
     <div className='app-page'>
       <section className='hero'>
         <div className='animate-float' style={{ marginBottom: '2rem' }}>
-          <ShieldCheck size={64} color='var(--primary-color)' />
+          <img src={`${import.meta.env.BASE_URL}markaz.png`} alt='Markaz Icon' style={{ width: '96px', height: '96px', borderRadius: '24px', boxShadow: '0 12px 32px rgba(0,0,0,0.3)' }} />
         </div>
         <h1 className='gradient-text'>Markaz</h1>
         <p>Your companion for Islamic prayer times, Qibla direction, and more.</p>

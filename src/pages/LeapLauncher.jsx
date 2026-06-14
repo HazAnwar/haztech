@@ -1,5 +1,5 @@
 import React from 'react';
-import { Monitor, GitBranch, Download } from 'lucide-react';
+import { GitBranch, Download } from 'lucide-react';
 import BugReport from '../components/BugReport';
 
 import { IconAndroid } from '../components/PlatformIcons';
@@ -9,7 +9,7 @@ export default function LeapLauncher() {
     <div className='app-page'>
       <section className='hero'>
         <div className='animate-float' style={{ marginBottom: '2rem' }}>
-          <Monitor size={64} color='var(--primary-color)' />
+          <img src={`${import.meta.env.BASE_URL}leap.png`} alt='Leap Launcher Icon' style={{ width: '96px', height: '96px', borderRadius: '24px', boxShadow: '0 12px 32px rgba(0,0,0,0.3)' }} />
         </div>
         <h1 className='gradient-text'>Leap Launcher</h1>
         <p>A simple and elegant launcher for your Android Mobile & TV.</p>

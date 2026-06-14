@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Monitor, ShieldCheck } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export default function Apps() {
   return (
@@ -13,7 +13,9 @@ export default function Apps() {
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
           <div className='glass' style={{ padding: '2.5rem', borderRadius: '1rem', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            <Monitor size={48} color='var(--primary-color)' />
+            <div style={{ marginBottom: '1.5rem' }}>
+              <img src={`${import.meta.env.BASE_URL}leap.png`} alt='Leap Launcher Icon' style={{ width: '64px', height: '64px', borderRadius: '16px', boxShadow: '0 8px 24px rgba(0,0,0,0.2)' }} />
+            </div>
             <div>
               <h2 style={{ fontSize: '1.75rem', marginBottom: '0.5rem' }}>Leap Launcher</h2>
               <p style={{ color: 'var(--text-secondary)' }}>
@@ -26,7 +28,9 @@ export default function Apps() {
           </div>
 
           <div className='glass' style={{ padding: '2.5rem', borderRadius: '1rem', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            <ShieldCheck size={48} color='var(--primary-color)' />
+            <div style={{ marginBottom: '1.5rem' }}>
+              <img src={`${import.meta.env.BASE_URL}markaz.png`} alt='Markaz Icon' style={{ width: '64px', height: '64px', borderRadius: '16px', boxShadow: '0 8px 24px rgba(0,0,0,0.2)' }} />
+            </div>
             <div>
               <h2 style={{ fontSize: '1.75rem', marginBottom: '0.5rem' }}>Markaz</h2>
               <p style={{ color: 'var(--text-secondary)' }}>

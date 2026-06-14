@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Smartphone } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export default function Home() {
   return (
     <div className='home-page'>
       <section className='hero'>
-        <div className='animate-float' style={{ marginBottom: '2rem' }}>
-          <Smartphone size={64} color='var(--primary-color)' />
+        <div className='animate-float' style={{ marginBottom: '2rem', display: 'flex', gap: '1.5rem', justifyContent: 'center' }}>
+          <img src={`${import.meta.env.BASE_URL}markaz.png`} alt='Markaz' style={{ width: '80px', height: '80px', borderRadius: '20px', boxShadow: '0 12px 32px rgba(0,0,0,0.3)' }} />
+          <img src={`${import.meta.env.BASE_URL}leap.png`} alt='Leap Launcher' style={{ width: '80px', height: '80px', borderRadius: '20px', boxShadow: '0 12px 32px rgba(0,0,0,0.3)' }} />
         </div>
         <h1 className='gradient-text'>HazTech Services Limited</h1>
         <p>
