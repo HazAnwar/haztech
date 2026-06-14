@@ -59,43 +59,50 @@ export default function Markaz() {
         <h1 className='gradient-text'>Markaz</h1>
         <p>Your companion for Islamic prayer times, Qibla direction, and more.</p>
         
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', marginTop: '1rem' }}>
-          <a href={platformInfo.link} className='btn btn-primary' style={{ width: '100%', maxWidth: '300px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem', marginTop: '1.5rem', width: '100%' }}>
+          <a href={platformInfo.link} className='btn btn-primary' style={{ width: '100%', maxWidth: '320px' }}>
             {platformInfo.icon} {downloadText}
           </a>
           
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center', fontSize: '0.9rem', marginTop: '0.5rem' }}>
+            <a href={platformInfo.link} target='_blank' rel='noopener noreferrer' style={{ color: 'var(--text-secondary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.25rem', transition: 'color 0.2s' }}>
+              <Download size={14} /> Download latest artifact
+            </a>
+            <span style={{ color: 'var(--border-color)' }}>|</span>
+            <a href='https://github.com/HazAnwar/markaz-app' target='_blank' rel='noopener noreferrer' style={{ color: 'var(--text-secondary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.25rem', transition: 'color 0.2s' }}>
+              <GitBranch size={14} /> View on GitHub
+            </a>
+          </div>
+
           <button 
             onClick={() => setShowAll(!showAll)} 
             className='btn btn-secondary' 
-            style={{ width: '100%', maxWidth: '300px', padding: '0.5rem 1rem', fontSize: '0.9rem' }}
+            style={{ width: '100%', maxWidth: '320px', padding: '0.5rem 1rem', fontSize: '0.9rem', marginTop: '1rem' }}
           >
             {showAll ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
             {showAll ? 'Hide all platforms' : 'Show all platforms'}
           </button>
           
           {showAll && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', width: '100%', maxWidth: '300px', animation: 'fadeIn 0.3s ease' }}>
-              <a href='https://github.com/HazAnwar/markaz-app/releases/latest/download/app-release.apk' className='btn btn-secondary' style={{ justifyContent: 'flex-start' }}>
-                <IconAndroid size={20} /> Android (.apk)
-              </a>
-              <a href='https://github.com/HazAnwar/markaz-app/releases/latest' className='btn btn-secondary' style={{ justifyContent: 'flex-start' }}>
-                <IconApple size={20} /> iOS (App Store)
-              </a>
-              <a href='https://github.com/HazAnwar/markaz-app/releases/latest/download/Markaz-Windows.exe' className='btn btn-secondary' style={{ justifyContent: 'flex-start' }}>
-                <IconWindows size={20} /> Windows (.exe)
-              </a>
-              <a href='https://github.com/HazAnwar/markaz-app/releases/latest/download/Markaz-macOS.dmg' className='btn btn-secondary' style={{ justifyContent: 'flex-start' }}>
-                <IconApple size={20} /> macOS (.dmg)
-              </a>
-              <a href='https://github.com/HazAnwar/markaz-app/releases/latest/download/Markaz-Linux.AppImage' className='btn btn-secondary' style={{ justifyContent: 'flex-start' }}>
-                <IconLinux size={20} /> Linux (.AppImage)
-              </a>
+            <div className='platform-slider' style={{ display: 'flex', overflowX: 'auto', scrollSnapType: 'x mandatory', gap: '1.5rem', padding: '1rem 0.5rem', width: '100%', WebkitOverflowScrolling: 'touch', marginTop: '0.5rem' }}>
+              {[
+                { id: 'android', name: 'Android', desc: 'Includes Wear OS', icon: <IconAndroid size={32} />, link: 'https://github.com/HazAnwar/markaz-app/releases/latest/download/app-release.apk' },
+                { id: 'ios', name: 'iOS', desc: 'Includes iPadOS & watchOS', icon: <IconApple size={32} />, link: 'https://github.com/HazAnwar/markaz-app/releases/latest' },
+                { id: 'mac', name: 'macOS', desc: 'Apple Silicon & Intel', icon: <IconApple size={32} />, link: 'https://github.com/HazAnwar/markaz-app/releases/latest/download/Markaz-macOS.dmg' },
+                { id: 'windows', name: 'Windows', desc: 'Windows 10 & 11', icon: <IconWindows size={32} />, link: 'https://github.com/HazAnwar/markaz-app/releases/latest/download/Markaz-Windows.exe' },
+                { id: 'linux', name: 'Linux', desc: 'Debian, Fedora, Ubuntu', icon: <IconLinux size={32} />, link: 'https://github.com/HazAnwar/markaz-app/releases/latest/download/Markaz-Linux.AppImage' }
+              ].map(p => (
+                <div key={p.id} className='glass' style={{ flex: '0 0 240px', scrollSnapAlign: 'center', padding: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', borderRadius: '1rem', textAlign: 'center' }}>
+                  {p.icon}
+                  <h3 style={{ margin: '0.5rem 0 0', fontSize: '1.25rem' }}>{p.name}</h3>
+                  <p style={{ margin: '0 0 1rem', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>{p.desc}</p>
+                  <a href={p.link} className='btn btn-secondary' style={{ width: '100%', fontSize: '0.9rem', padding: '0.5rem' }}>
+                    Download
+                  </a>
+                </div>
+              ))}
             </div>
           )}
-
-          <a href='https://github.com/HazAnwar/markaz-app' target='_blank' rel='noopener noreferrer' className='btn btn-secondary' style={{ width: '100%', maxWidth: '300px', marginTop: '1rem' }}>
-            <GitBranch size={20} /> View on GitHub
-          </a>
         </div>
       </section>
 
