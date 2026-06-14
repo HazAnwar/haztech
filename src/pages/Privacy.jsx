@@ -16,6 +16,8 @@ export default function Privacy() {
           <br /><br />
           <strong>4. Authentication & Payments:</strong> We use secure third-party providers (like Google Sign-In and RevenueCat) for authentication and subscription management. We do not store your payment credentials.
           <br /><br />
+          <strong>5. Data Deletion:</strong> If you wish to delete your account or any associated data, please follow the instructions on our <a href="/data-deletion" style={{ color: 'var(--primary-color)', textDecoration: 'underline' }}>Data Deletion</a> page.
+          <br /><br />
           If you have any questions or concerns regarding our privacy practices,
           please contact us at <a href='mailto:privacy@haztech.services' style={{ color: 'var(--primary-color)', textDecoration: 'underline' }}>privacy@haztech.services</a>.
         </p>

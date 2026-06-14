@@ -5,6 +5,7 @@ import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
+import DataDeletion from './pages/DataDeletion';
 import Apps from './pages/Apps';
 import LeapLauncher from './pages/LeapLauncher';
 import Markaz from './pages/Markaz';
@@ -23,6 +24,7 @@ export default function App() {
           <Route path='/apps' element={<Apps />} />
           <Route path='/privacy' element={<Privacy />} />
           <Route path='/terms' element={<Terms />} />
+          <Route path='/data-deletion' element={<DataDeletion />} />
           <Route path='/leap-launcher' element={<LeapLauncher />} />
           <Route path='/markaz' element={<Markaz />} />
           <Route path='*' element={<NotFound />} />

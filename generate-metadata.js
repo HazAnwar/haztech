@@ -103,4 +103,14 @@ const termsHtml = generateHtml(
 fs.mkdirSync(path.join(distDir, 'terms'), { recursive: true });
 fs.writeFileSync(path.join(distDir, 'terms', 'index.html'), termsHtml);
 
-console.log('Successfully generated specific metadata for /markaz, /leap-launcher, /apps, /privacy, and /terms routes.');
+// --- Data Deletion ---
+const dataDeletionHtml = generateHtml(
+  'HazTech Services | Data Deletion',
+  'Learn how to request deletion of your account and associated data.',
+  '/data-deletion',
+  '/og-image.jpg'
+);
+fs.mkdirSync(path.join(distDir, 'data-deletion'), { recursive: true });
+fs.writeFileSync(path.join(distDir, 'data-deletion', 'index.html'), dataDeletionHtml);
+
+console.log('Successfully generated specific metadata for /markaz, /leap-launcher, /apps, /privacy, /terms, and /data-deletion routes.');
