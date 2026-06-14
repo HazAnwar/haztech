@@ -9,6 +9,7 @@ export default function Markaz() {
   const platformParam = searchParams.get('platform');
   const shouldRedirect = searchParams.has('redirect');
   const [showAll, setShowAll] = useState(false);
+  const [isRedirecting, setIsRedirecting] = useState(shouldRedirect);
 
   const getPlatformInfo = () => {
     let p = platformParam ? platformParam.toLowerCase() : '';
@@ -47,8 +48,23 @@ export default function Markaz() {
   useEffect(() => {
     if (shouldRedirect && platformInfo.storeUrl) {
       window.location.href = platformInfo.storeUrl;
+      const timer = setTimeout(() => {
+        setIsRedirecting(false);
+      }, 2500);
+      return () => clearTimeout(timer);
     }
   }, [shouldRedirect, platformInfo.storeUrl]);
+
+  if (isRedirecting) {
+    return (
+      <div style={{ height: '100%', minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '1rem' }}>
+        <div className='animate-float'>
+          <ShieldCheck size={48} color='var(--primary-color)' />
+        </div>
+        <p style={{ color: 'var(--text-secondary)' }}>Redirecting to the store...</p>
+      </div>
+    );
+  }
 
   return (
     <div className='app-page'>
