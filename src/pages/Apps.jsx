@@ -11,7 +11,7 @@ export default function Apps() {
           Discover our suite of premium mobile and web applications.
         </p>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '2rem', justifyContent: 'center' }}>
           <div className='glass' style={{ padding: '2.5rem', borderRadius: '1rem', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
             <div style={{ marginBottom: '1.5rem' }}>
               <img src={`${import.meta.env.BASE_URL}leap.png`} alt='Leap Launcher Icon' style={{ width: '64px', height: '64px', borderRadius: '16px', boxShadow: '0 8px 24px rgba(0,0,0,0.2)' }} />

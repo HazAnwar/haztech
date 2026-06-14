@@ -6,6 +6,7 @@ const indexFile = path.join(distDir, 'index.html');
 
 if (!fs.existsSync(indexFile)) {
   console.error('dist/index.html not found. Run npm run build first.');
+  // eslint-disable-next-line no-undef
   process.exit(1);
 }
 
