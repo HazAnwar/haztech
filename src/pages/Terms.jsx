@@ -16,7 +16,7 @@ export default function Terms() {
           <br />
           <br />
           If you encounter any issues or need further assistance, please reach
-          out to our support team at info@haztech.services.
+          out to our support team at <a href='mailto:info@haztech.services' style={{ color: 'var(--primary-color)', textDecoration: 'underline' }}>info@haztech.services</a>.
         </p>
       </div>
     </div>

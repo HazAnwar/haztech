@@ -17,7 +17,7 @@ export default function Privacy() {
           <br />
           <br />
           If you have any questions or concerns regarding our privacy practices,
-          please contact us at info@haztech.services.
+          please contact us at <a href='mailto:info@haztech.services' style={{ color: 'var(--primary-color)', textDecoration: 'underline' }}>info@haztech.services</a>.
         </p>
       </div>
     </div>
