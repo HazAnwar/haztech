@@ -25,19 +25,19 @@ export default function Markaz() {
 
     switch (p) {
       case 'android':
-        return { name: 'Android', icon: <IconAndroid size={20} />, link: 'https://github.com/HazAnwar/markaz-app/releases/latest/download/app-release.apk' };
+        return { name: 'Android', icon: <IconAndroid size={20} />, storeUrl: '#placeholder-android-store', artifactUrl: 'https://github.com/HazAnwar/markaz-app/releases/latest/download/app-release.apk' };
       case 'ios':
-        return { name: 'iOS', icon: <IconApple size={20} />, link: 'https://github.com/HazAnwar/markaz-app/releases/latest' };
+        return { name: 'iOS', icon: <IconApple size={20} />, storeUrl: '#placeholder-ios-store', artifactUrl: 'https://github.com/HazAnwar/markaz-app/releases/latest' };
       case 'mac':
       case 'macos':
-        return { name: 'macOS', icon: <IconApple size={20} />, link: 'https://github.com/HazAnwar/markaz-app/releases/latest/download/Markaz-macOS.dmg' };
+        return { name: 'macOS', icon: <IconApple size={20} />, storeUrl: '#placeholder-mac-store', artifactUrl: 'https://github.com/HazAnwar/markaz-app/releases/latest/download/Markaz-macOS.dmg' };
       case 'windows':
       case 'win':
-        return { name: 'Windows', icon: <IconWindows size={20} />, link: 'https://github.com/HazAnwar/markaz-app/releases/latest/download/Markaz-Windows.exe' };
+        return { name: 'Windows', icon: <IconWindows size={20} />, storeUrl: '#placeholder-windows-store', artifactUrl: 'https://github.com/HazAnwar/markaz-app/releases/latest/download/Markaz-Windows.exe' };
       case 'linux':
-        return { name: 'Linux', icon: <IconLinux size={20} />, link: 'https://github.com/HazAnwar/markaz-app/releases/latest/download/Markaz-Linux.AppImage' };
+        return { name: 'Linux', icon: <IconLinux size={20} />, storeUrl: '#placeholder-linux-store', artifactUrl: 'https://github.com/HazAnwar/markaz-app/releases/latest/download/Markaz-Linux.AppImage' };
       default:
-        return { name: '', icon: <Download size={20} />, link: 'https://github.com/HazAnwar/markaz-app/releases/latest' };
+        return { name: '', icon: <Download size={20} />, storeUrl: '#placeholder-store', artifactUrl: 'https://github.com/HazAnwar/markaz-app/releases/latest' };
     }
   };
 
@@ -45,10 +45,10 @@ export default function Markaz() {
   const downloadText = platformInfo.name ? `Download for ${platformInfo.name}` : 'Download App';
 
   useEffect(() => {
-    if (redirectParam === 'true' && platformInfo.link) {
-      window.location.href = platformInfo.link;
+    if (redirectParam === 'true' && platformInfo.storeUrl) {
+      window.location.href = platformInfo.storeUrl;
     }
-  }, [redirectParam, platformInfo.link]);
+  }, [redirectParam, platformInfo.storeUrl]);
 
   return (
     <div className='app-page'>
@@ -60,13 +60,13 @@ export default function Markaz() {
         <p>Your companion for Islamic prayer times, Qibla direction, and more.</p>
         
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem', marginTop: '1.5rem', width: '100%' }}>
-          <a href={platformInfo.link} className='btn btn-primary' style={{ width: '100%', maxWidth: '320px' }}>
+          <a href={platformInfo.storeUrl} className='btn btn-primary' style={{ width: '100%', maxWidth: '320px' }}>
             {platformInfo.icon} {downloadText}
           </a>
           
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center', fontSize: '0.9rem', marginTop: '0.5rem' }}>
-            <a href={platformInfo.link} target='_blank' rel='noopener noreferrer' style={{ color: 'var(--text-secondary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.25rem', transition: 'color 0.2s' }}>
-              <Download size={14} /> Download latest artifact
+            <a href={platformInfo.artifactUrl} target='_blank' rel='noopener noreferrer' style={{ color: 'var(--text-secondary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.25rem', transition: 'color 0.2s' }}>
+              <Download size={14} /> Download artifact
             </a>
             <span style={{ color: 'var(--border-color)' }}>|</span>
             <a href='https://github.com/HazAnwar/markaz-app' target='_blank' rel='noopener noreferrer' style={{ color: 'var(--text-secondary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.25rem', transition: 'color 0.2s' }}>
@@ -86,17 +86,17 @@ export default function Markaz() {
           {showAll && (
             <div className='platform-slider' style={{ display: 'flex', overflowX: 'auto', scrollSnapType: 'x mandatory', gap: '1.5rem', padding: '1rem 0.5rem', width: '100%', WebkitOverflowScrolling: 'touch', marginTop: '0.5rem' }}>
               {[
-                { id: 'android', name: 'Android', desc: 'Includes Wear OS', icon: <IconAndroid size={32} />, link: 'https://github.com/HazAnwar/markaz-app/releases/latest/download/app-release.apk' },
-                { id: 'ios', name: 'iOS', desc: 'Includes iPadOS & watchOS', icon: <IconApple size={32} />, link: 'https://github.com/HazAnwar/markaz-app/releases/latest' },
-                { id: 'mac', name: 'macOS', desc: 'Apple Silicon & Intel', icon: <IconApple size={32} />, link: 'https://github.com/HazAnwar/markaz-app/releases/latest/download/Markaz-macOS.dmg' },
-                { id: 'windows', name: 'Windows', desc: 'Windows 10 & 11', icon: <IconWindows size={32} />, link: 'https://github.com/HazAnwar/markaz-app/releases/latest/download/Markaz-Windows.exe' },
-                { id: 'linux', name: 'Linux', desc: 'Debian, Fedora, Ubuntu', icon: <IconLinux size={32} />, link: 'https://github.com/HazAnwar/markaz-app/releases/latest/download/Markaz-Linux.AppImage' }
+                { id: 'android', name: 'Android', desc: 'Includes Wear OS', icon: <IconAndroid size={32} />, storeUrl: '#placeholder-android-store' },
+                { id: 'ios', name: 'iOS', desc: 'Includes iPadOS & watchOS', icon: <IconApple size={32} />, storeUrl: '#placeholder-ios-store' },
+                { id: 'mac', name: 'macOS', desc: 'Apple Silicon & Intel', icon: <IconApple size={32} />, storeUrl: '#placeholder-mac-store' },
+                { id: 'windows', name: 'Windows', desc: 'Windows 10 & 11', icon: <IconWindows size={32} />, storeUrl: '#placeholder-windows-store' },
+                { id: 'linux', name: 'Linux', desc: 'Debian, Fedora, Ubuntu', icon: <IconLinux size={32} />, storeUrl: '#placeholder-linux-store' }
               ].map(p => (
                 <div key={p.id} className='glass' style={{ flex: '0 0 240px', scrollSnapAlign: 'center', padding: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', borderRadius: '1rem', textAlign: 'center' }}>
                   {p.icon}
                   <h3 style={{ margin: '0.5rem 0 0', fontSize: '1.25rem' }}>{p.name}</h3>
                   <p style={{ margin: '0 0 1rem', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>{p.desc}</p>
-                  <a href={p.link} className='btn btn-secondary' style={{ width: '100%', fontSize: '0.9rem', padding: '0.5rem' }}>
+                  <a href={p.storeUrl} className='btn btn-secondary' style={{ width: '100%', fontSize: '0.9rem', padding: '0.5rem' }}>
                     Download
                   </a>
                 </div>
