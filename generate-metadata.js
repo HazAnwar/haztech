@@ -35,21 +35,21 @@ const generateHtml = (title, desc, urlPath, imageUrl) => {
 
   // Replace <title>
   let newHtml = baseHtml.replace(/<title>.*?<\/title>/, `<title>${title}</title>`);
-  
+
   // Replace the metadata block
   const startMarker = '<!-- METADATA_START -->';
   const endMarker = '<!-- METADATA_END -->';
-  
+
   const startIndex = newHtml.indexOf(startMarker);
   const endIndex = newHtml.indexOf(endMarker) + endMarker.length;
-  
+
   if (startIndex !== -1 && endIndex !== -1) {
     newHtml = newHtml.substring(0, startIndex) + startMarker + metadataBlock + endMarker + newHtml.substring(endIndex);
   }
-  
+
   // Fix relative asset paths for subdirectories so the preload scanner doesn't 404
   newHtml = newHtml.replace(/(src|href)="\.\/assets\//g, '$1="../assets/');
-  
+
   return newHtml;
 };
 
@@ -58,7 +58,7 @@ const markazHtml = generateHtml(
   'HazTech Services | Markaz App',
   'Discover Markaz: the ultimate all-in-one, cross-platform companion for Muslims. Accurate prayer times, Qibla, and completely ad-free.',
   '/markaz',
-  '/markaz.png'
+  '/markaz.png',
 );
 fs.mkdirSync(path.join(distDir, 'markaz'), { recursive: true });
 fs.writeFileSync(path.join(distDir, 'markaz', 'index.html'), markazHtml);
@@ -68,48 +68,28 @@ const leapHtml = generateHtml(
   'HazTech Services | Leap Launcher',
   'A simple and elegant launcher for your Android Mobile & TV. Experience a distraction-free digital life.',
   '/leap-launcher',
-  '/leap.png'
+  '/leap.png',
 );
 fs.mkdirSync(path.join(distDir, 'leap-launcher'), { recursive: true });
 fs.writeFileSync(path.join(distDir, 'leap-launcher', 'index.html'), leapHtml);
 
 // --- Apps ---
-const appsHtml = generateHtml(
-  'HazTech Services | Apps',
-  'Explore our portfolio of premium mobile and web applications.',
-  '/apps',
-  '/og-image.jpg'
-);
+const appsHtml = generateHtml('HazTech Services | Apps', 'Explore our portfolio of premium mobile and web applications.', '/apps', '/og-image.jpg');
 fs.mkdirSync(path.join(distDir, 'apps'), { recursive: true });
 fs.writeFileSync(path.join(distDir, 'apps', 'index.html'), appsHtml);
 
 // --- Privacy Policy ---
-const privacyHtml = generateHtml(
-  'HazTech Services | Privacy Policy',
-  'Read the privacy policy for HazTech Services and our applications.',
-  '/privacy',
-  '/og-image.jpg'
-);
+const privacyHtml = generateHtml('HazTech Services | Privacy Policy', 'Read the privacy policy for HazTech Services and our applications.', '/privacy', '/og-image.jpg');
 fs.mkdirSync(path.join(distDir, 'privacy'), { recursive: true });
 fs.writeFileSync(path.join(distDir, 'privacy', 'index.html'), privacyHtml);
 
 // --- Terms of Service ---
-const termsHtml = generateHtml(
-  'HazTech Services | Terms of Service',
-  'Read the terms of service for HazTech Services and our applications.',
-  '/terms',
-  '/og-image.jpg'
-);
+const termsHtml = generateHtml('HazTech Services | Terms of Service', 'Read the terms of service for HazTech Services and our applications.', '/terms', '/og-image.jpg');
 fs.mkdirSync(path.join(distDir, 'terms'), { recursive: true });
 fs.writeFileSync(path.join(distDir, 'terms', 'index.html'), termsHtml);
 
 // --- Data Deletion ---
-const dataDeletionHtml = generateHtml(
-  'HazTech Services | Data Deletion',
-  'Learn how to request deletion of your account and associated data.',
-  '/data-deletion',
-  '/og-image.jpg'
-);
+const dataDeletionHtml = generateHtml('HazTech Services | Data Deletion', 'Learn how to request deletion of your account and associated data.', '/data-deletion', '/og-image.jpg');
 fs.mkdirSync(path.join(distDir, 'data-deletion'), { recursive: true });
 fs.writeFileSync(path.join(distDir, 'data-deletion', 'index.html'), dataDeletionHtml);
 

@@ -26,7 +26,12 @@ export default function Markaz() {
 
     switch (p) {
       case 'android':
-        return { name: 'Android', icon: <IconAndroid size={20} />, storeUrl: 'https://play.google.com/store/apps/details?id=com.haztech.prayer', artifactUrl: 'https://github.com/HazAnwar/markaz-app/releases/latest' };
+        return {
+          name: 'Android',
+          icon: <IconAndroid size={20} />,
+          storeUrl: 'https://play.google.com/store/apps/details?id=com.haztech.prayer',
+          artifactUrl: 'https://github.com/HazAnwar/markaz-app/releases/latest',
+        };
       case 'ios':
         return { name: 'iOS', icon: <IconApple size={20} />, storeUrl: 'https://apps.apple.com/us/app/markaz/id0000000000', artifactUrl: 'https://github.com/HazAnwar/markaz-app/releases/latest' };
       case 'mac':
@@ -34,11 +39,21 @@ export default function Markaz() {
         return { name: 'macOS', icon: <IconApple size={20} />, storeUrl: 'https://apps.apple.com/us/app/markaz/id0000000000', artifactUrl: 'https://github.com/HazAnwar/markaz-app/releases/latest' };
       case 'windows':
       case 'win':
-        return { name: 'Windows', icon: <IconWindows size={20} />, storeUrl: 'https://apps.microsoft.com/store/detail/markaz/XYZ000000000', artifactUrl: 'https://github.com/HazAnwar/markaz-app/releases/latest' };
+        return {
+          name: 'Windows',
+          icon: <IconWindows size={20} />,
+          storeUrl: 'https://apps.microsoft.com/store/detail/markaz/XYZ000000000',
+          artifactUrl: 'https://github.com/HazAnwar/markaz-app/releases/latest',
+        };
       case 'linux':
         return { name: 'Linux', icon: <IconLinux size={20} />, storeUrl: 'https://flathub.org/apps/details/org.haztech.markaz', artifactUrl: 'https://github.com/HazAnwar/markaz-app/releases/latest' };
       default:
-        return { name: '', icon: <Download size={20} />, storeUrl: 'https://play.google.com/store/apps/details?id=com.haztech.prayer', artifactUrl: 'https://github.com/HazAnwar/markaz-app/releases/latest' };
+        return {
+          name: '',
+          icon: <Download size={20} />,
+          storeUrl: 'https://play.google.com/store/apps/details?id=com.haztech.prayer',
+          artifactUrl: 'https://github.com/HazAnwar/markaz-app/releases/latest',
+        };
     }
   };
 
@@ -74,41 +89,64 @@ export default function Markaz() {
         </div>
         <h1 className='gradient-text'>Markaz</h1>
         <p>Your all in one deen companion for Islamic prayer times, Qibla direction, and much more!</p>
-        
+
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem', marginTop: '1.5rem', width: '100%' }}>
           <a href={platformInfo.storeUrl} className='btn btn-primary' style={{ width: '100%', maxWidth: '320px' }}>
             {platformInfo.icon} {downloadText}
           </a>
-          
+
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center', fontSize: '0.9rem', marginTop: '0.5rem' }}>
-            <a href={platformInfo.artifactUrl} target='_blank' rel='noopener noreferrer' style={{ color: 'var(--text-secondary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.25rem', transition: 'color 0.2s' }}>
+            <a
+              href={platformInfo.artifactUrl}
+              target='_blank'
+              rel='noopener noreferrer'
+              style={{ color: 'var(--text-secondary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.25rem', transition: 'color 0.2s' }}
+            >
               <Download size={14} /> Download artifact
             </a>
             <span style={{ color: 'var(--border-color)' }}>|</span>
-            <a href='https://github.com/HazAnwar/markaz' target='_blank' rel='noopener noreferrer' style={{ color: 'var(--text-secondary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.25rem', transition: 'color 0.2s' }}>
+            <a
+              href='https://github.com/HazAnwar/markaz'
+              target='_blank'
+              rel='noopener noreferrer'
+              style={{ color: 'var(--text-secondary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.25rem', transition: 'color 0.2s' }}
+            >
               <GitBranch size={14} /> View on GitHub
             </a>
           </div>
 
-          <button 
-            onClick={() => setShowAll(!showAll)} 
-            className='btn btn-secondary' 
-            style={{ width: '100%', maxWidth: '320px', padding: '0.5rem 1rem', fontSize: '0.9rem', marginTop: '1rem' }}
-          >
+          <button onClick={() => setShowAll(!showAll)} className='btn btn-secondary' style={{ width: '100%', maxWidth: '320px', padding: '0.5rem 1rem', fontSize: '0.9rem', marginTop: '1rem' }}>
             {showAll ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
             {showAll ? 'Hide all platforms' : 'Show all platforms'}
           </button>
-          
+
           {showAll && (
-            <div className='platform-slider' style={{ display: 'flex', overflowX: 'auto', scrollSnapType: 'x mandatory', gap: '1.5rem', padding: '1rem 0.5rem', width: '100%', WebkitOverflowScrolling: 'touch', marginTop: '0.5rem' }}>
+            <div
+              className='platform-slider'
+              style={{ display: 'flex', overflowX: 'auto', scrollSnapType: 'x mandatory', gap: '1.5rem', padding: '1rem 0.5rem', width: '100%', WebkitOverflowScrolling: 'touch', marginTop: '0.5rem' }}
+            >
               {[
                 { id: 'android', name: 'Android', desc: 'Mobile & WearOS', icon: <IconAndroid size={32} />, storeUrl: 'https://play.google.com/store/apps/details?id=com.haztech.prayer' },
                 { id: 'ios', name: 'iOS', desc: 'iOS, iPadOS & watchOS', icon: <IconApple size={32} />, storeUrl: 'https://apps.apple.com/us/app/markaz/id0000000000' },
                 { id: 'mac', name: 'macOS', desc: 'Apple Silicon & Intel', icon: <IconApple size={32} />, storeUrl: 'https://apps.apple.com/us/app/markaz/id0000000000' },
                 { id: 'windows', name: 'Windows', desc: 'Windows 10 & 11', icon: <IconWindows size={32} />, storeUrl: 'https://apps.microsoft.com/store/detail/markaz/XYZ000000000' },
-                { id: 'linux', name: 'Linux', desc: 'Debian, Fedora, Ubuntu', icon: <IconLinux size={32} />, storeUrl: 'https://flathub.org/apps/details/org.haztech.markaz' }
-              ].map(p => (
-                <div key={p.id} className='glass' style={{ flex: '0 0 240px', scrollSnapAlign: 'center', padding: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', borderRadius: '1rem', textAlign: 'center' }}>
+                { id: 'linux', name: 'Linux', desc: 'Debian, Fedora, Ubuntu', icon: <IconLinux size={32} />, storeUrl: 'https://flathub.org/apps/details/org.haztech.markaz' },
+              ].map((p) => (
+                <div
+                  key={p.id}
+                  className='glass'
+                  style={{
+                    flex: '0 0 240px',
+                    scrollSnapAlign: 'center',
+                    padding: '2rem',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    borderRadius: '1rem',
+                    textAlign: 'center',
+                  }}
+                >
                   {p.icon}
                   <h3 style={{ margin: '0.5rem 0 0', fontSize: '1.25rem' }}>{p.name}</h3>
                   <p style={{ margin: '0 0 1rem', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>{p.desc}</p>
@@ -129,16 +167,16 @@ export default function Markaz() {
         </p>
         <br />
         <p style={{ color: 'var(--text-secondary)' }}>
-          While there are many prayer apps out there, most of them are bloated, filled with ads, or secretly sell your data, so we built Markaz to be different. We guarantee zero ads, no data collection, no location tracking, and no intrusive permissions. 
+          While there are many prayer apps out there, most of them are bloated, filled with ads, or secretly sell your data, so we built Markaz to be different. We guarantee zero ads, no data
+          collection, no location tracking, and no intrusive permissions.
         </p>
         <br />
         <p style={{ color: 'var(--text-secondary)' }}>
-          We deliver all of this without compromise, ensuring a lightning-fast, lightweight experience with a beautiful, modern design with exceptional user experiences all whilst making sure to get the most out of your devices by integrating with the latest technologies and functionality available.
+          We deliver all of this without compromise, ensuring a lightning-fast, lightweight experience with a beautiful, modern design with exceptional user experiences all whilst making sure to get
+          the most out of your devices by integrating with the latest technologies and functionality available.
         </p>
-        <br/>
-        <p style={{ color: 'var(--text-secondary)' }}>
-          We truly value each and every single user, we hope to help you to centre your deen. Jazak'Allah Khairan for your support!
-        </p>
+        <br />
+        <p style={{ color: 'var(--text-secondary)' }}>We truly value each and every single user, we hope to help you to centre your deen. Jazak'Allah Khairan for your support!</p>
       </section>
 
       <section style={{ padding: '4rem 0', textAlign: 'center' }}>

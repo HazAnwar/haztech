@@ -68,8 +68,7 @@ export default function BugReport({ repoName }) {
             marginBottom: '3rem',
           }}
         >
-          Found an issue? Fill in the details below and submit via GitHub or
-          email.
+          Found an issue? Fill in the details below and submit via GitHub or email.
         </p>
         <form
           className='glass'
@@ -83,9 +82,7 @@ export default function BugReport({ repoName }) {
             margin: '0 auto',
           }}
         >
-          <div
-            style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}
-          >
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
             <label htmlFor='bugTitle' style={{ fontWeight: '600' }}>
               Summary <span style={{ color: 'red' }}>*</span>
             </label>
@@ -103,9 +100,7 @@ export default function BugReport({ repoName }) {
               }}
             />
           </div>
-          <div
-            style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}
-          >
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
             <label htmlFor='bugDevice' style={{ fontWeight: '600' }}>
               Device / OS Version
             </label>
@@ -122,9 +117,7 @@ export default function BugReport({ repoName }) {
               }}
             />
           </div>
-          <div
-            style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}
-          >
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
             <label htmlFor='bugSteps' style={{ fontWeight: '600' }}>
               Steps to Reproduce
             </label>
@@ -142,9 +135,7 @@ export default function BugReport({ repoName }) {
               }}
             ></textarea>
           </div>
-          <div
-            style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}
-          >
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
             <label htmlFor='bugExpected' style={{ fontWeight: '600' }}>
               Expected Behaviour
             </label>
@@ -163,18 +154,10 @@ export default function BugReport({ repoName }) {
             ></textarea>
           </div>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-            <button
-              type='submit'
-              onClick={handleGitHub}
-              className='btn btn-primary'
-            >
+            <button type='submit' onClick={handleGitHub} className='btn btn-primary'>
               Open Issue on GitHub
             </button>
-            <button
-              type='submit'
-              onClick={handleEmail}
-              className='btn btn-secondary'
-            >
+            <button type='submit' onClick={handleEmail} className='btn btn-secondary'>
               Email Support
             </button>
           </div>

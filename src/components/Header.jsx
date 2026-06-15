@@ -55,11 +55,7 @@ export default function Header() {
           <a href='mailto:info@haztech.services' className='nav-link'>
             Contact
           </a>
-          <button
-            onClick={toggleTheme}
-            className='theme-toggle'
-            aria-label='Toggle theme'
-          >
+          <button onClick={toggleTheme} className='theme-toggle' aria-label='Toggle theme'>
             {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
           </button>
         </nav>
