@@ -20,17 +20,17 @@ const generateHtml = (title, desc, urlPath, imageUrl) => {
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://hazanwar.github.io/haztech${urlPath}" />
+    <meta property="og:url" content="https://haztech.services${urlPath}" />
     <meta property="og:title" content="${title}" />
     <meta property="og:description" content="${desc}" />
-    <meta property="og:image" content="https://hazanwar.github.io/haztech${imageUrl}" />
+    <meta property="og:image" content="https://haztech.services${imageUrl}" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://hazanwar.github.io/haztech${urlPath}" />
+    <meta property="twitter:url" content="https://haztech.services${urlPath}" />
     <meta property="twitter:title" content="${title}" />
     <meta property="twitter:description" content="${desc}" />
-    <meta property="twitter:image" content="https://hazanwar.github.io/haztech${imageUrl}" />
+    <meta property="twitter:image" content="https://haztech.services${imageUrl}" />
   `;
 
   // Replace <title>
