@@ -27,10 +27,7 @@ export default function Home() {
           </div>
         </div>
         <h1 className='gradient-text'>HazTech Services</h1>
-        <p>
-          We craft premium, high-performance client applications — mobile, web, and beyond - paired with scalable backend solutions. End-to-end, full-stack delivery with beautifully designed user
-          experiences at the core.
-        </p>
+        <p>Premium, high-performance apps from pixel-perfect frontends to scalable backends, delivered end to end.</p>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', width: '100%' }}>
           <Link to='/apps' className='btn btn-primary' style={{ width: '100%', maxWidth: '280px' }}>
             Explore Apps <ArrowRight size={20} />
