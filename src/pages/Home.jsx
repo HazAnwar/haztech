@@ -27,7 +27,8 @@ export default function Home() {
           </div>
         </div>
         <h1 className='gradient-text'>HazTech Services</h1>
-        <p>Premium, high-performance apps from pixel-perfect frontends to scalable backends, delivered end to end.</p>
+        <p>We design, build and deploy premium, high-performance solutions from pixel-perfect frontends to scalable backends.</p>
+        <p>We believe in using technology to enhance users lives through amazing user experiences and intuitive design.</p>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', width: '100%' }}>
           <Link to='/apps' className='btn btn-primary' style={{ width: '100%', maxWidth: '280px' }}>
             Explore Apps <ArrowRight size={20} />
