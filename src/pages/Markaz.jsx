@@ -160,23 +160,30 @@ export default function Markaz() {
         </div>
       </section>
 
-      <section style={{ padding: '4rem 0', textAlign: 'center' }}>
+      <section id='about' style={{ padding: '4rem 0', textAlign: 'center' }}>
         <h2 style={{ fontSize: '2.5rem', marginBottom: '2rem' }}>About Markaz</h2>
+        <p style={{ color: 'var(--text-secondary)' }}>Assalamualaikum!</p>
+        <br />
         <p style={{ color: 'var(--text-secondary)' }}>
-          Assalamualaikum! Markaz is built for Muslims, by Muslims. Our goal is simple: to provide a one-stop app for all your Islamic needs without compromising on privacy or performance.
+          Markaz is built for Muslims, by Muslims. Our goal is simple: to provide a single, comprehensive app for all your Islamic needs without compromising on privacy or performance.
         </p>
         <br />
         <p style={{ color: 'var(--text-secondary)' }}>
-          While there are many prayer apps out there, most of them are bloated, filled with ads, or secretly sell your data, so we built Markaz to be different. We guarantee zero ads, no data
-          collection, no location tracking, and no intrusive permissions.
+          While there are many prayer apps available, most are bloated, filled with ads, or secretly sell your data. We built Markaz to be different; no ads, no data collection, no location tracking,
+          and no intrusive permissions!
         </p>
         <br />
         <p style={{ color: 'var(--text-secondary)' }}>
-          We deliver all of this without compromise, ensuring a lightning-fast, lightweight experience with a beautiful, modern design with exceptional user experiences all whilst making sure to get
-          the most out of your devices by integrating with the latest technologies and functionality available.
+          All of this comes without compromise. Markaz delivers a lightning-fast, lightweight experience with a beautiful, modern design, while making the most of the latest technologies available on
+          your device.
         </p>
         <br />
-        <p style={{ color: 'var(--text-secondary)' }}>We truly value each and every single user, we hope to help you to centre your deen. Jazak'Allah Khairan for your support!</p>
+        <p style={{ color: 'var(--text-secondary)' }}>
+          If you find Markaz beneficial, please consider subscribing to Markaz Pro. Your support directly funds ongoing development and helps us to continue improving the app and add new features. We
+          truly value every single user and hope Markaz helps you centre your deen.
+        </p>
+        <br />
+        <p style={{ color: 'var(--text-secondary)' }}>Jazak'Allah Khairan for your support!</p>
       </section>
 
       <section style={{ padding: '4rem 0', textAlign: 'center' }}>
