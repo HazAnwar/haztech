@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Moon, Sun, Code2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -13,6 +13,9 @@ function getInitialTheme() {
 
 export default function Header() {
   const [theme, setTheme] = useState(getInitialTheme);
+  const headerRef = useRef(null);
+  const lastScrollY = useRef(window.scrollY);
+  const offset = useRef(0);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -29,6 +32,31 @@ export default function Header() {
     return () => mediaQuery.removeEventListener('change', handleChange);
   }, []);
 
+  useEffect(() => {
+    lastScrollY.current = window.scrollY;
+
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      const delta = currentY - lastScrollY.current;
+      const headerHeight = headerRef.current?.offsetHeight || 80;
+
+      offset.current = Math.max(-headerHeight, Math.min(0, offset.current - delta));
+
+      if (currentY <= 0) {
+        offset.current = 0;
+      }
+
+      if (headerRef.current) {
+        headerRef.current.style.transform = `translateY(${offset.current}px)`;
+      }
+
+      lastScrollY.current = currentY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const toggleTheme = () => {
     setTheme((prev) => {
       const newTheme = prev === 'light' ? 'dark' : 'light';
@@ -38,7 +66,7 @@ export default function Header() {
   };
 
   return (
-    <header className='header container'>
+    <header ref={headerRef} className='header container'>
       <div className='header-container glass'>
         <Link to='/' className='header-logo'>
           <Code2 size={24} color='var(--primary-color)' />
