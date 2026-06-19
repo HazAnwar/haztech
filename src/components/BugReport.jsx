@@ -153,7 +153,7 @@ export default function BugReport({ repoName }) {
               }}
             ></textarea>
           </div>
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
             <button type='submit' onClick={handleGitHub} className='btn btn-primary'>
               Open Issue on GitHub
             </button>
