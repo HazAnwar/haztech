@@ -4,6 +4,15 @@ import { GitBranch, ChevronDown, ChevronUp, Globe } from 'lucide-react';
 import BugReport from '../components/BugReport';
 import { IconApple, IconAndroid, IconWindows, IconLinux } from '../components/PlatformIcons';
 
+const STORE_URLS = {
+  web: 'https://markaz.haztech.services/',
+  android: 'https://play.google.com/store/apps/details?id=com.haztech.prayer',
+  ios: 'https://apps.apple.com/us/app/markaz/id0000000000',
+  mac: 'https://apps.apple.com/us/app/markaz/id0000000000',
+  windows: 'https://apps.microsoft.com/detail/9N53LTXNFFTZ',
+  linux: 'https://snapcraft.io/markaz',
+};
+
 export default function Markaz() {
   const [searchParams] = useSearchParams();
   const platformParam = searchParams.get('platform');
@@ -26,20 +35,20 @@ export default function Markaz() {
 
     switch (p) {
       case 'web':
-        return { name: 'Web App', icon: <Globe size={20} />, storeUrl: 'https://markaz.haztech.services/' };
+        return { name: 'Web App', icon: <Globe size={20} />, storeUrl: STORE_URLS.web };
       case 'ios':
-        return { name: 'iOS', icon: <IconApple size={20} />, storeUrl: 'https://apps.apple.com/us/app/markaz/id0000000000' };
+        return { name: 'iOS', icon: <IconApple size={20} />, storeUrl: STORE_URLS.ios };
       case 'mac':
       case 'macos':
-        return { name: 'macOS', icon: <IconApple size={20} />, storeUrl: 'https://apps.apple.com/us/app/markaz/id0000000000' };
+        return { name: 'macOS', icon: <IconApple size={20} />, storeUrl: STORE_URLS.mac };
       case 'windows':
       case 'win':
-        return { name: 'Windows', icon: <IconWindows size={20} />, storeUrl: 'https://apps.microsoft.com/detail/9N53LTXNFFTZ' };
+        return { name: 'Windows', icon: <IconWindows size={20} />, storeUrl: STORE_URLS.windows };
       case 'linux':
-        return { name: 'Linux', icon: <IconLinux size={20} />, storeUrl: 'https://snapcraft.io/markaz' };
+        return { name: 'Linux', icon: <IconLinux size={20} />, storeUrl: STORE_URLS.linux };
       case 'android':
       default:
-        return { name: 'Android', icon: <IconAndroid size={20} />, storeUrl: 'https://play.google.com/store/apps/details?id=com.haztech.prayer' };
+        return { name: 'Android', icon: <IconAndroid size={20} />, storeUrl: STORE_URLS.android };
     }
   };
 
@@ -103,12 +112,12 @@ export default function Markaz() {
               style={{ display: 'flex', overflowX: 'auto', scrollSnapType: 'x mandatory', gap: '1.5rem', padding: '1rem 0.5rem', width: '100%', WebkitOverflowScrolling: 'touch', marginTop: '0.5rem' }}
             >
               {[
-                { id: 'android', name: 'Android', desc: 'Mobile, Tablet & Watch', icon: <IconAndroid size={32} />, storeUrl: 'https://play.google.com/store/apps/details?id=com.haztech.prayer' },
-                { id: 'ios', name: 'iOS', desc: 'iOS, iPadOS & watchOS', icon: <IconApple size={32} />, storeUrl: 'https://apps.apple.com/us/app/markaz/id0000000000' },
-                { id: 'mac', name: 'macOS', desc: 'Apple Silicon & Intel', icon: <IconApple size={32} />, storeUrl: 'https://apps.apple.com/us/app/markaz/id0000000000' },
-                { id: 'windows', name: 'Windows', desc: 'Windows 10 & 11', icon: <IconWindows size={32} />, storeUrl: 'https://apps.microsoft.com/detail/9N53LTXNFFTZ' },
-                { id: 'linux', name: 'Linux', desc: 'Debian, Fedora, Ubuntu', icon: <IconLinux size={32} />, storeUrl: 'https://snapcraft.io/markaz' },
-                { id: 'web', name: 'Web App', desc: 'Any Browser', icon: <Globe size={32} />, storeUrl: 'https://markaz.haztech.services/' },
+                { id: 'android', name: 'Android', desc: 'Mobile, Tablet & Watch', icon: <IconAndroid size={32} />, storeUrl: STORE_URLS.android },
+                { id: 'ios', name: 'iOS', desc: 'iOS, iPadOS & watchOS', icon: <IconApple size={32} />, storeUrl: STORE_URLS.ios },
+                { id: 'mac', name: 'macOS', desc: 'Apple Silicon & Intel', icon: <IconApple size={32} />, storeUrl: STORE_URLS.mac },
+                { id: 'windows', name: 'Windows', desc: 'Windows 10 & 11', icon: <IconWindows size={32} />, storeUrl: STORE_URLS.windows },
+                { id: 'linux', name: 'Linux', desc: 'Debian, Fedora, Ubuntu', icon: <IconLinux size={32} />, storeUrl: STORE_URLS.linux },
+                { id: 'web', name: 'Web App', desc: 'Any Browser', icon: <Globe size={32} />, storeUrl: STORE_URLS.web },
               ].map((p) => (
                 <div
                   key={p.id}
