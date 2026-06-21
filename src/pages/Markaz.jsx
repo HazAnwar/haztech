@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { GitBranch, Download, ChevronDown, ChevronUp } from 'lucide-react';
+import { GitBranch, Download, ChevronDown, ChevronUp, Globe } from 'lucide-react';
 import BugReport from '../components/BugReport';
 import { IconApple, IconAndroid, IconWindows, IconLinux } from '../components/PlatformIcons';
 
@@ -48,17 +48,12 @@ export default function Markaz() {
       case 'linux':
         return { name: 'Linux', icon: <IconLinux size={20} />, storeUrl: 'https://snapcraft.io/markaz', artifactUrl: 'https://github.com/HazAnwar/markaz/releases/latest' };
       default:
-        return {
-          name: '',
-          icon: <Download size={20} />,
-          storeUrl: 'https://play.google.com/store/apps/details?id=com.haztech.prayer',
-          artifactUrl: 'https://github.com/HazAnwar/markaz/releases/latest',
-        };
+        return { name: 'Web App', icon: <Globe size={20} />, storeUrl: 'https://markaz.haztech.services/', artifactUrl: '' };
     }
   };
 
   const platformInfo = getPlatformInfo();
-  const downloadText = platformInfo.name ? `Download for ${platformInfo.name}` : 'Download App';
+  const downloadText = platformInfo.name === 'Web App' ? 'Launch Web App' : platformInfo.name ? `Download for ${platformInfo.name}` : 'Download App';
 
   useEffect(() => {
     if (shouldRedirect && platformInfo.storeUrl) {
@@ -96,15 +91,19 @@ export default function Markaz() {
           </a>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center', fontSize: '0.9rem', marginTop: '0.5rem' }}>
-            <a
-              href={platformInfo.artifactUrl}
-              target='_blank'
-              rel='noopener noreferrer'
-              style={{ color: 'var(--text-secondary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.25rem', transition: 'color 0.2s' }}
-            >
-              <Download size={14} /> Download artifact
-            </a>
-            <span style={{ color: 'var(--border-color)' }}>|</span>
+            {platformInfo.artifactUrl && (
+              <>
+                <a
+                  href={platformInfo.artifactUrl}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  style={{ color: 'var(--text-secondary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.25rem', transition: 'color 0.2s' }}
+                >
+                  <Download size={14} /> Download artifact
+                </a>
+                <span style={{ color: 'var(--border-color)' }}>|</span>
+              </>
+            )}
             <a
               href='https://github.com/HazAnwar/markaz'
               target='_blank'
@@ -131,6 +130,7 @@ export default function Markaz() {
                 { id: 'mac', name: 'macOS', desc: 'Apple Silicon & Intel', icon: <IconApple size={32} />, storeUrl: 'https://apps.apple.com/us/app/markaz/id0000000000' },
                 { id: 'windows', name: 'Windows', desc: 'Windows 10 & 11', icon: <IconWindows size={32} />, storeUrl: 'https://apps.microsoft.com/store/detail/markaz/XYZ000000000' },
                 { id: 'linux', name: 'Linux', desc: 'Debian, Fedora, Ubuntu', icon: <IconLinux size={32} />, storeUrl: 'https://snapcraft.io/markaz' },
+                { id: 'web', name: 'Web App', desc: 'Any Browser', icon: <Globe size={32} />, storeUrl: 'https://markaz.haztech.services/' },
               ].map((p) => (
                 <div
                   key={p.id}
@@ -151,7 +151,7 @@ export default function Markaz() {
                   <h3 style={{ margin: '0.5rem 0 0', fontSize: '1.25rem' }}>{p.name}</h3>
                   <p style={{ margin: '0 0 1rem', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>{p.desc}</p>
                   <a href={p.storeUrl} className='btn btn-secondary' style={{ width: '100%', fontSize: '0.9rem', padding: '0.5rem' }}>
-                    Download
+                    {p.id === 'web' ? 'Launch' : 'Download'}
                   </a>
                 </div>
               ))}
