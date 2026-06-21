@@ -46,7 +46,7 @@ export default function Markaz() {
           artifactUrl: 'https://github.com/HazAnwar/markaz-app/releases/latest',
         };
       case 'linux':
-        return { name: 'Linux', icon: <IconLinux size={20} />, storeUrl: 'https://flathub.org/apps/details/org.haztech.markaz', artifactUrl: 'https://github.com/HazAnwar/markaz-app/releases/latest' };
+        return { name: 'Linux', icon: <IconLinux size={20} />, storeUrl: 'https://snapcraft.io/markaz', artifactUrl: 'https://github.com/HazAnwar/markaz-app/releases/latest' };
       default:
         return {
           name: '',
@@ -130,7 +130,7 @@ export default function Markaz() {
                 { id: 'ios', name: 'iOS', desc: 'iOS, iPadOS & watchOS', icon: <IconApple size={32} />, storeUrl: 'https://apps.apple.com/us/app/markaz/id0000000000' },
                 { id: 'mac', name: 'macOS', desc: 'Apple Silicon & Intel', icon: <IconApple size={32} />, storeUrl: 'https://apps.apple.com/us/app/markaz/id0000000000' },
                 { id: 'windows', name: 'Windows', desc: 'Windows 10 & 11', icon: <IconWindows size={32} />, storeUrl: 'https://apps.microsoft.com/store/detail/markaz/XYZ000000000' },
-                { id: 'linux', name: 'Linux', desc: 'Debian, Fedora, Ubuntu', icon: <IconLinux size={32} />, storeUrl: 'https://flathub.org/apps/details/org.haztech.markaz' },
+                { id: 'linux', name: 'Linux', desc: 'Debian, Fedora, Ubuntu', icon: <IconLinux size={32} />, storeUrl: 'https://snapcraft.io/markaz' },
               ].map((p) => (
                 <div
                   key={p.id}
