@@ -25,30 +25,21 @@ export default function Markaz() {
     }
 
     switch (p) {
-      case 'android':
-        return {
-          name: 'Android',
-          icon: <IconAndroid size={20} />,
-          storeUrl: 'https://play.google.com/store/apps/details?id=com.haztech.prayer',
-          artifactUrl: 'https://github.com/HazAnwar/markaz/releases/latest',
-        };
+      case 'web':
+        return { name: 'Web App', icon: <Globe size={20} />, storeUrl: 'https://markaz.haztech.services/' };
       case 'ios':
-        return { name: 'iOS', icon: <IconApple size={20} />, storeUrl: 'https://apps.apple.com/us/app/markaz/id0000000000', artifactUrl: 'https://github.com/HazAnwar/markaz/releases/latest' };
+        return { name: 'iOS', icon: <IconApple size={20} />, storeUrl: 'https://apps.apple.com/us/app/markaz/id0000000000' };
       case 'mac':
       case 'macos':
-        return { name: 'macOS', icon: <IconApple size={20} />, storeUrl: 'https://apps.apple.com/us/app/markaz/id0000000000', artifactUrl: 'https://github.com/HazAnwar/markaz/releases/latest' };
+        return { name: 'macOS', icon: <IconApple size={20} />, storeUrl: 'https://apps.apple.com/us/app/markaz/id0000000000' };
       case 'windows':
       case 'win':
-        return {
-          name: 'Windows',
-          icon: <IconWindows size={20} />,
-          storeUrl: 'https://apps.microsoft.com/store/detail/markaz/XYZ000000000',
-          artifactUrl: 'https://github.com/HazAnwar/markaz/releases/latest',
-        };
+        return { name: 'Windows', icon: <IconWindows size={20} />, storeUrl: 'https://apps.microsoft.com/store/detail/markaz/XYZ000000000' };
       case 'linux':
-        return { name: 'Linux', icon: <IconLinux size={20} />, storeUrl: 'https://snapcraft.io/markaz', artifactUrl: 'https://github.com/HazAnwar/markaz/releases/latest' };
+        return { name: 'Linux', icon: <IconLinux size={20} />, storeUrl: 'https://snapcraft.io/markaz' };
+      case 'android':
       default:
-        return { name: 'Web App', icon: <Globe size={20} />, storeUrl: 'https://markaz.haztech.services/', artifactUrl: '' };
+        return { name: 'Android', icon: <IconAndroid size={20} />, storeUrl: 'https://play.google.com/store/apps/details?id=com.haztech.prayer' };
     }
   };
 
@@ -91,26 +82,13 @@ export default function Markaz() {
           </a>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center', fontSize: '0.9rem', marginTop: '0.5rem' }}>
-            {platformInfo.artifactUrl && (
-              <>
-                <a
-                  href={platformInfo.artifactUrl}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  style={{ color: 'var(--text-secondary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.25rem', transition: 'color 0.2s' }}
-                >
-                  <Download size={14} /> Download artifact
-                </a>
-                <span style={{ color: 'var(--border-color)' }}>|</span>
-              </>
-            )}
             <a
               href='https://github.com/HazAnwar/markaz'
               target='_blank'
               rel='noopener noreferrer'
               style={{ color: 'var(--text-secondary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.25rem', transition: 'color 0.2s' }}
             >
-              <GitBranch size={14} /> View on GitHub
+              <GitBranch size={14} /> View / Download on GitHub
             </a>
           </div>
 
@@ -125,7 +103,7 @@ export default function Markaz() {
               style={{ display: 'flex', overflowX: 'auto', scrollSnapType: 'x mandatory', gap: '1.5rem', padding: '1rem 0.5rem', width: '100%', WebkitOverflowScrolling: 'touch', marginTop: '0.5rem' }}
             >
               {[
-                { id: 'android', name: 'Android', desc: 'Mobile & WearOS', icon: <IconAndroid size={32} />, storeUrl: 'https://play.google.com/store/apps/details?id=com.haztech.prayer' },
+                { id: 'android', name: 'Android', desc: 'Mobile, Tablet & Watch', icon: <IconAndroid size={32} />, storeUrl: 'https://play.google.com/store/apps/details?id=com.haztech.prayer' },
                 { id: 'ios', name: 'iOS', desc: 'iOS, iPadOS & watchOS', icon: <IconApple size={32} />, storeUrl: 'https://apps.apple.com/us/app/markaz/id0000000000' },
                 { id: 'mac', name: 'macOS', desc: 'Apple Silicon & Intel', icon: <IconApple size={32} />, storeUrl: 'https://apps.apple.com/us/app/markaz/id0000000000' },
                 { id: 'windows', name: 'Windows', desc: 'Windows 10 & 11', icon: <IconWindows size={32} />, storeUrl: 'https://apps.microsoft.com/store/detail/markaz/XYZ000000000' },
