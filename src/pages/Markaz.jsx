@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { GitBranch, Download, ChevronDown, ChevronUp, Globe } from 'lucide-react';
+import { GitBranch, ChevronDown, ChevronUp, Globe } from 'lucide-react';
 import BugReport from '../components/BugReport';
 import { IconApple, IconAndroid, IconWindows, IconLinux } from '../components/PlatformIcons';
 
@@ -34,7 +34,7 @@ export default function Markaz() {
         return { name: 'macOS', icon: <IconApple size={20} />, storeUrl: 'https://apps.apple.com/us/app/markaz/id0000000000' };
       case 'windows':
       case 'win':
-        return { name: 'Windows', icon: <IconWindows size={20} />, storeUrl: 'https://apps.microsoft.com/store/detail/markaz/XYZ000000000' };
+        return { name: 'Windows', icon: <IconWindows size={20} />, storeUrl: 'https://apps.microsoft.com/detail/9N53LTXNFFTZ' };
       case 'linux':
         return { name: 'Linux', icon: <IconLinux size={20} />, storeUrl: 'https://snapcraft.io/markaz' };
       case 'android':
@@ -106,7 +106,7 @@ export default function Markaz() {
                 { id: 'android', name: 'Android', desc: 'Mobile, Tablet & Watch', icon: <IconAndroid size={32} />, storeUrl: 'https://play.google.com/store/apps/details?id=com.haztech.prayer' },
                 { id: 'ios', name: 'iOS', desc: 'iOS, iPadOS & watchOS', icon: <IconApple size={32} />, storeUrl: 'https://apps.apple.com/us/app/markaz/id0000000000' },
                 { id: 'mac', name: 'macOS', desc: 'Apple Silicon & Intel', icon: <IconApple size={32} />, storeUrl: 'https://apps.apple.com/us/app/markaz/id0000000000' },
-                { id: 'windows', name: 'Windows', desc: 'Windows 10 & 11', icon: <IconWindows size={32} />, storeUrl: 'https://apps.microsoft.com/store/detail/markaz/XYZ000000000' },
+                { id: 'windows', name: 'Windows', desc: 'Windows 10 & 11', icon: <IconWindows size={32} />, storeUrl: 'https://apps.microsoft.com/detail/9N53LTXNFFTZ' },
                 { id: 'linux', name: 'Linux', desc: 'Debian, Fedora, Ubuntu', icon: <IconLinux size={32} />, storeUrl: 'https://snapcraft.io/markaz' },
                 { id: 'web', name: 'Web App', desc: 'Any Browser', icon: <Globe size={32} />, storeUrl: 'https://markaz.haztech.services/' },
               ].map((p) => (
