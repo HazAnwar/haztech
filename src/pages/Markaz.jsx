@@ -7,8 +7,8 @@ import { IconApple, IconAndroid, IconWindows, IconLinux } from '../components/Pl
 const STORE_URLS = {
   web: 'https://markaz.haztech.services/',
   android: 'https://play.google.com/store/apps/details?id=com.haztech.prayer',
-  ios: 'https://apps.apple.com/us/app/markaz/id0000000000',
-  mac: 'https://apps.apple.com/us/app/markaz/id0000000000',
+  ios: 'https://apps.apple.com/us/app/markaz/id6783402543',
+  mac: 'https://apps.apple.com/us/app/markaz/id6783402543',
   windows: 'https://apps.microsoft.com/detail/9N53LTXNFFTZ',
   linux: 'https://snapcraft.io/markaz',
 };
