@@ -9,6 +9,7 @@ import DataDeletion from './pages/DataDeletion';
 import Apps from './pages/Apps';
 import LeapLauncher from './pages/LeapLauncher';
 import Markaz from './pages/Markaz';
+import BloopBrigade from './pages/BloopBrigade';
 import NotFound from './pages/NotFound';
 
 export default function App() {
@@ -27,6 +28,7 @@ export default function App() {
           <Route path='/data-deletion' element={<DataDeletion />} />
           <Route path='/leap-launcher' element={<LeapLauncher />} />
           <Route path='/markaz' element={<Markaz />} />
+          <Route path='/bloop-brigade' element={<BloopBrigade />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
       </Layout>

@@ -37,6 +37,23 @@ export default function Apps() {
               Explore Markaz <ArrowRight size={16} />
             </Link>
           </div>
+
+          <div className='glass' style={{ padding: '2.5rem', borderRadius: '1rem', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <div style={{ marginBottom: '1.5rem' }}>
+              <img
+                src={`${import.meta.env.BASE_URL}bloop-brigade.png`}
+                alt='Bloop Brigade Icon'
+                style={{ width: '64px', height: '64px', borderRadius: '16px', boxShadow: '0 8px 24px rgba(0,0,0,0.2)' }}
+              />
+            </div>
+            <div>
+              <h2 style={{ fontSize: '1.75rem', marginBottom: '0.5rem' }}>Bloop Brigade</h2>
+              <p style={{ color: 'var(--text-secondary)' }}>A colourful co-op tower defence game for all ages. Pop the Grumbles and protect the Star Energy, solo or together. Coming soon.</p>
+            </div>
+            <Link to='/bloop-brigade' className='btn btn-secondary' style={{ marginTop: 'auto', alignSelf: 'flex-start' }}>
+              Explore Bloop Brigade <ArrowRight size={16} />
+            </Link>
+          </div>
         </div>
       </div>
     </div>

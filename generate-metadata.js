@@ -63,6 +63,16 @@ const markazHtml = generateHtml(
 fs.mkdirSync(path.join(distDir, 'markaz'), { recursive: true });
 fs.writeFileSync(path.join(distDir, 'markaz', 'index.html'), markazHtml);
 
+// --- Bloop Brigade ---
+const bloopHtml = generateHtml(
+  'HazTech Services | Bloop Brigade',
+  'A colourful co-op tower defence game for all ages. Pop the Grumbles and protect the Star Energy, solo or together.',
+  '/bloop-brigade',
+  '/bloop-brigade.png',
+);
+fs.mkdirSync(path.join(distDir, 'bloop-brigade'), { recursive: true });
+fs.writeFileSync(path.join(distDir, 'bloop-brigade', 'index.html'), bloopHtml);
+
 // --- Leap Launcher ---
 const leapHtml = generateHtml(
   'HazTech Services | Leap Launcher',
@@ -93,4 +103,4 @@ const dataDeletionHtml = generateHtml('HazTech Services | Data Deletion', 'Learn
 fs.mkdirSync(path.join(distDir, 'data-deletion'), { recursive: true });
 fs.writeFileSync(path.join(distDir, 'data-deletion', 'index.html'), dataDeletionHtml);
 
-console.log('Successfully generated specific metadata for /markaz, /leap-launcher, /apps, /privacy, /terms, and /data-deletion routes.');
+console.log('Successfully generated specific metadata for /markaz, /bloop-brigade, /leap-launcher, /apps, /privacy, /terms, and /data-deletion routes.');

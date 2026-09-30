@@ -7,7 +7,7 @@ export default function DataDeletion() {
         <h1 style={{ marginBottom: '2rem' }}>Account & Data Deletion</h1>
         <p style={{ color: 'var(--text-secondary)' }}>
           At HazTech Services Limited, we value your privacy and give you full control over your data. If you wish to delete your account and all associated data from any of our applications
-          (including Markaz), you can do so by following the instructions below.
+          (including Markaz and Bloop Brigade), you can do so by following the instructions below.
           <br />
           <br />
           <strong>Method 1: In-App Deletion</strong>
@@ -37,7 +37,8 @@ export default function DataDeletion() {
               <strong>Subject:</strong> Account Data Deletion Request
             </li>
             <li>
-              <strong>Body:</strong> Please include the email address associated with your account and the name of the app (e.g., Markaz).
+              <strong>Body:</strong> Please include the email address associated with your account and the name of the app (e.g., Markaz or Bloop Brigade). For Bloop Brigade, please also include your
+              in-game display name.
             </li>
           </ul>
           <br />

@@ -26,7 +26,17 @@ export default function Privacy() {
           payment credentials.
           <br />
           <br />
-          <strong>5. Data Deletion:</strong> If you wish to delete your account or any associated data, please follow the instructions on our{' '}
+          <strong>5. Online Games (Bloop Brigade):</strong> Bloop Brigade uses Epic Online Services for online co-op, cross-platform play and syncing your progress between devices. When you use online
+          features, Epic Online Services may process an account identifier, your display name, a device identifier, any platform account you choose to link (such as Epic, PlayStation Network, Xbox or
+          Nintendo), your game progress, and your IP address to connect you with other players. Playing offline or in local split-screen does not use these services. Bloop Brigade is designed for all
+          ages and has no chat, messaging or advertising. See the{' '}
+          <a href='https://www.epicgames.com/site/privacypolicy' target='_blank' rel='noopener noreferrer' style={{ color: 'var(--primary-color)', textDecoration: 'underline' }}>
+            Epic Games Privacy Policy
+          </a>{' '}
+          for how Epic handles this data.
+          <br />
+          <br />
+          <strong>6. Data Deletion:</strong> If you wish to delete your account or any associated data, please follow the instructions on our{' '}
           <a href='/data-deletion' style={{ color: 'var(--primary-color)', textDecoration: 'underline' }}>
             Data Deletion
           </a>{' '}
