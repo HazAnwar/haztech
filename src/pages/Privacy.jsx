@@ -55,8 +55,9 @@ export default function Privacy() {
 
         <Section id='bloop-brigade' title='Bloop Brigade'>
           <p>
-            Bloop Brigade can be played entirely offline, including local split-screen. Offline play does not send any data to us or anyone else. The information below only applies when you use the
-            game&apos;s optional online features: online co-op parties, playing with friends, and backing up your progress so it is shared between your devices.
+            Bloop Brigade can be played entirely offline, including local split-screen. Most of the information below only applies when you use the game&apos;s optional online features: online co-op
+            parties, playing with friends, and backing up your progress so it is shared between your devices. The one exception is anonymous crash reports, which the game sends (offline or online) if
+            it crashes or hits an error, unless you turn them off.
           </p>
 
           <Part title='What we collect'>
@@ -83,10 +84,15 @@ export default function Privacy() {
                 <strong>Only if you link an Epic account (optional):</strong> your Epic account ID and display name; your Epic friends list, to show which friends are playing and let you invite them;
                 and your in-game status (for example, &quot;In a party&quot;), which your friends can see.
               </li>
+              <li>
+                <strong>Crash reports (you can turn these off):</strong> if the game crashes or hits an error, a report with what went wrong (including the game&apos;s technical log), the game
+                version, details of your device (operating system, graphics card and memory), your language and graphics settings, the state of the game at the time (for example, the wave number and
+                how many players were playing) and an anonymous ID for the report. Crash reports do not include your display name, player ID, screenshots or IP address.
+              </li>
             </ul>
             <p style={{ marginTop: '0.75rem' }}>
               We do <strong>not</strong> collect your real name, email address, phone number, contacts, precise location or payment details. The game has no chat, no messaging, no advertising, no
-              analytics and no tracking.
+              analytics and no tracking. Crash reports are only used to find and fix problems in the game.
             </p>
           </Part>
 
@@ -96,6 +102,7 @@ export default function Privacy() {
               <li>To back up your progress and keep it the same on all of your devices.</li>
               <li>To show your display name to the other players in your party, and (if you linked an Epic account) to show your friends that you are playing.</li>
               <li>To keep online play working and fair, and to answer your support requests.</li>
+              <li>To find and fix crashes and errors (crash reports).</li>
             </ul>
           </Part>
 
@@ -107,6 +114,14 @@ export default function Privacy() {
                 at{' '}
                 <a href='https://www.epicgames.com/site/privacypolicy' target='_blank' rel='noopener noreferrer' style={link}>
                   epicgames.com/site/privacypolicy
+                </a>
+                .
+              </li>
+              <li>
+                <strong>Sentry</strong> (Functional Software, Inc.) receives crash reports and stores them for us, in the European Union (Germany), acting only on our behalf to help us fix the game.
+                Its privacy policy is available at{' '}
+                <a href='https://sentry.io/privacy/' target='_blank' rel='noopener noreferrer' style={link}>
+                  sentry.io/privacy
                 </a>
                 .
               </li>
@@ -147,6 +162,10 @@ export default function Privacy() {
               </li>
               <li>
                 <strong>Player ID and display name:</strong> kept with your progress backup, and deleted with it.
+              </li>
+              <li>
+                <strong>Crash reports:</strong> kept for up to 90 days and then deleted automatically. You can stop the game sending them at any time in{' '}
+                <strong>Settings › Gameplay › Send crash reports</strong>.
               </li>
             </ul>
           </Part>
