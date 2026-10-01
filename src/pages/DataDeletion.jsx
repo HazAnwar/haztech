@@ -23,6 +23,12 @@ export default function DataDeletion() {
             </li>
           </ul>
           <br />
+          <strong>Bloop Brigade</strong>
+          <br />
+          Open the game and go to <strong>Settings › Account › Delete my online data</strong>, then press it again to confirm. This deletes your progress backup, player ID and display name from our
+          online services straight away. Your progress on the device itself is kept, and you can remove it by deleting the game.
+          <br />
+          <br />
           <strong>Method 2: Email Request</strong>
           <br />
           If you no longer have the app installed or prefer to request deletion via email, please send an email to our support team:

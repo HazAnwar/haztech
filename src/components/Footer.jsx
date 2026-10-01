@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { COMPANY } from '../company';
 
 export default function Footer() {
   return (
     <footer className='footer container'>
       <p className='copyright'>
-        &copy; {new Date().getFullYear()} HazTech Services Limited.
+        &copy; {new Date().getFullYear()} {COMPANY.name}. All rights reserved.
         <br />
-        All rights reserved.
+        Registered in {COMPANY.registeredIn}. Company number {COMPANY.companyNumber}.
       </p>
       <div className='footer-nav'>
         <a href='https://github.com/HazAnwar' target='_blank' rel='noopener noreferrer' className='nav-link'>
