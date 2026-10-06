@@ -72,7 +72,8 @@ export default function Privacy() {
                 <strong>Your display name:</strong> an automatically generated name (for example, &quot;Bloop 1234&quot;), or your Epic account display name if you choose to link an Epic account.
               </li>
               <li>
-                <strong>Game progress backup:</strong> your best wave and score, unlocked outfits, the outfits you wear, your Sparkle totals and which tips you have seen.
+                <strong>Game progress backup:</strong> your best wave and score, unlocked outfits, the outfits you wear, your Sparkle totals, achievements, which tips you have seen, and your game
+                preferences (such as controls, difficulty and language).
               </li>
               <li>
                 <strong>Party information:</strong> when you host or join an online party: the party code, the game version, and the display names and player IDs of the people in the party.
@@ -87,7 +88,8 @@ export default function Privacy() {
               <li>
                 <strong>Crash reports (you can turn these off):</strong> if the game crashes or hits an error, a report with what went wrong (including the game&apos;s technical log), the game
                 version, details of your device (operating system, graphics card and memory), your language and graphics settings, the state of the game at the time (for example, the wave number and
-                how many players were playing) and an anonymous ID for the report. Crash reports do not include your display name, player ID, screenshots or IP address.
+                how many players were playing) and an anonymous ID for the report. Crash reports do not include your display name, player ID or screenshots. Our crash-report provider works out an
+                approximate location (your country, and sometimes your city) from your internet connection and keeps it with the report; your IP address itself is not stored.
               </li>
             </ul>
             <p style={{ marginTop: '0.75rem' }}>
@@ -130,6 +132,19 @@ export default function Privacy() {
                 players&apos; devices may receive your IP address.
               </li>
               <li>
+                <strong>Google Play Games (Android) and Apple Game Center (iPhone and iPad)</strong>, if you are signed in to them on your device: your achievements, your best wave (for the
+                leaderboard) and a copy of your game progress are stored in your Google or Apple account, so they follow you to your other devices. Google and Apple handle this under their own privacy
+                policies (
+                <a href='https://policies.google.com/privacy' target='_blank' rel='noopener noreferrer' style={link}>
+                  policies.google.com/privacy
+                </a>
+                ,{' '}
+                <a href='https://www.apple.com/legal/privacy/' target='_blank' rel='noopener noreferrer' style={link}>
+                  apple.com/legal/privacy
+                </a>
+                ). On Android, your device may also back up your game data to your Google account, if you have backups turned on.
+              </li>
+              <li>
                 <strong>Console platforms</strong> (where the game is available on PlayStation, Xbox or Nintendo consoles): online features use the account you are signed in to on that console, under
                 that platform&apos;s own terms.
               </li>
@@ -162,6 +177,10 @@ export default function Privacy() {
               </li>
               <li>
                 <strong>Player ID and display name:</strong> kept with your progress backup, and deleted with it.
+              </li>
+              <li>
+                <strong>Google Play Games and Game Center:</strong> your progress copy is kept in your Google or Apple account until you delete it (
+                <strong>Settings › Account › Delete my online data</strong> deletes it too) or remove the game from your account in Google Play Games or Game Center.
               </li>
               <li>
                 <strong>Crash reports:</strong> kept for up to 90 days and then deleted automatically. You can stop the game sending them at any time in{' '}
