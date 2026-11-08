@@ -8,7 +8,7 @@ const PRODUCTS = [
     name: 'Bloop Brigade',
     icon: 'bloop-brigade.png',
     path: '/bloop-brigade',
-    kind: 'Game · PC, consoles and mobile · Coming Q4 2026',
+    kind: 'Game · iOS, macOS and Android',
     desc: 'A colourful co-op tower defence game for 1 to 4 players. Pop the Grumbles, build towers and protect the Star Seed, solo, in split-screen or online.',
   },
   {

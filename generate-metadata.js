@@ -12,7 +12,7 @@ if (!fs.existsSync(indexFile)) {
 
 const baseHtml = fs.readFileSync(indexFile, 'utf8');
 
-const generateHtml = (title, desc, urlPath, imageUrl) => {
+const generateHtml = (title, desc, urlPath, imageUrl, extraMeta = '') => {
   const metadataBlock = `
     <!-- Primary Meta Tags -->
     <meta name="title" content="${title}" />
@@ -31,7 +31,7 @@ const generateHtml = (title, desc, urlPath, imageUrl) => {
     <meta property="twitter:title" content="${title}" />
     <meta property="twitter:description" content="${desc}" />
     <meta property="twitter:image" content="https://haztech.services${imageUrl}" />
-  `;
+${extraMeta}  `;
 
   // Replace <title>
   let newHtml = baseHtml.replace(/<title>.*?<\/title>/, `<title>${title}</title>`);
@@ -66,9 +66,11 @@ fs.writeFileSync(path.join(distDir, 'markaz', 'index.html'), markazHtml);
 // --- Bloop Brigade ---
 const bloopHtml = generateHtml(
   'HazTech Services | Bloop Brigade',
-  'A colourful co-op tower defence game for all ages. Pop the Grumbles and protect the Star Energy, solo or together.',
+  'A colourful co-op tower defence game for all ages. Pop the Grumbles and protect the Star Energy, solo or together. Out now on the App Store and Google Play.',
   '/bloop-brigade',
-  '/bloop-brigade.png',
+  '/bloop-brigade-og.jpg',
+  // Safari's Smart App Banner on iPhone, iPad and Mac.
+  '    <meta name="apple-itunes-app" content="app-id=6818502459" />\n',
 );
 fs.mkdirSync(path.join(distDir, 'bloop-brigade'), { recursive: true });
 fs.writeFileSync(path.join(distDir, 'bloop-brigade', 'index.html'), bloopHtml);

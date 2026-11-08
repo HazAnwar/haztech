@@ -48,7 +48,9 @@ export default function Apps() {
             </div>
             <div>
               <h2 style={{ fontSize: '1.75rem', marginBottom: '0.5rem' }}>Bloop Brigade</h2>
-              <p style={{ color: 'var(--text-secondary)' }}>A colourful co-op tower defence game for all ages. Pop the Grumbles and protect the Star Energy, solo or together. Coming soon.</p>
+              <p style={{ color: 'var(--text-secondary)' }}>
+                A colourful co-op tower defence game for all ages. Pop the Grumbles and protect the Star Energy, solo or together. Out now on the App Store and Google Play.
+              </p>
             </div>
             <Link to='/bloop-brigade' className='btn btn-secondary' style={{ marginTop: 'auto', alignSelf: 'flex-start' }}>
               Explore Bloop Brigade <ArrowRight size={16} />
