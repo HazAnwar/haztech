@@ -1,14 +1,22 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { Play, X, ChevronLeft, ChevronRight } from 'lucide-react';
-import { FaGooglePlay } from 'react-icons/fa';
+import { Play, X, ChevronLeft, ChevronRight, ChevronDown, ChevronUp, Gamepad2 } from 'lucide-react';
 import { COMPANY } from '../company';
-import { IconApple } from '../components/PlatformIcons';
+import { IconApple, IconAndroid } from '../components/PlatformIcons';
 
-const STORES = {
-  apple: { label: 'App Store', icon: IconApple, url: 'https://apps.apple.com/app/bloop-brigade/id6818502459' },
-  google: { label: 'Google Play', icon: FaGooglePlay, url: 'https://play.google.com/store/apps/details?id=com.haztech.bloopbrigade' },
+const STORE_URLS = {
+  apple: 'https://apps.apple.com/app/bloop-brigade/id6818502459',
+  google: 'https://play.google.com/store/apps/details?id=com.haztech.bloopbrigade',
 };
+
+// Same shape as the Markaz page: one button for the visitor's device, plus a slider of every platform.
+const PLATFORMS = [
+  { id: 'ios', name: 'iOS', desc: 'iPhone, iPad & Vision Pro', Icon: IconApple, storeUrl: STORE_URLS.apple, store: 'App Store' },
+  { id: 'mac', name: 'macOS', desc: 'Apple Silicon & Intel', Icon: IconApple, storeUrl: STORE_URLS.apple, store: 'App Store' },
+  { id: 'android', name: 'Android', desc: 'Phones & Tablets', Icon: IconAndroid, storeUrl: STORE_URLS.google, store: 'Google Play' },
+  { id: 'pc', name: 'PC & Consoles', desc: 'Coming later', Icon: Gamepad2 },
+];
+const platformById = (id) => PLATFORMS.find((p) => p.id === id);
 
 const FEATURES = [
   { title: 'Pop the Grumbles', desc: 'Blast bubbles and build towers to stop the grumpy Grumbles draining the Star Seed’s energy.' },
@@ -71,14 +79,18 @@ const DETAILS = [
   ['Age rating', 'App Store 4+ · PEGI 3. Designed for all ages'],
 ];
 
-function detectStore(param) {
+function detectPlatform(param) {
   const p = (param || '').toLowerCase();
-  if (['ios', 'iphone', 'ipad', 'mac', 'macos', 'apple'].includes(p)) return 'apple';
-  if (['android', 'google', 'play'].includes(p)) return 'google';
+  if (['ios', 'iphone', 'ipad', 'apple'].includes(p)) return 'ios';
+  if (['mac', 'macos'].includes(p)) return 'mac';
+  if (['android', 'google', 'play'].includes(p)) return 'android';
   if (typeof navigator === 'undefined') return null;
   const ua = navigator.userAgent.toLowerCase();
-  if (ua.includes('android')) return 'google';
-  if (/iphone|ipad|ipod|macintosh|mac os x/.test(ua)) return 'apple';
+  if (ua.includes('android')) return 'android';
+  if (/iphone|ipad|ipod/.test(ua)) return 'ios';
+  // iPadOS reports itself as a Mac, so tell them apart by touch support.
+  if (/macintosh|mac os x/.test(ua)) return navigator.maxTouchPoints > 1 ? 'ios' : 'mac';
+  // Windows, Linux and anything else: no store yet, so show every platform instead.
   return null;
 }
 
@@ -86,17 +98,67 @@ function prefersReducedMotion() {
   return typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 }
 
-function StoreButton({ id, primary }) {
-  const s = STORES[id];
-  const Icon = s.icon;
+function DownloadOptions({ detected }) {
+  const primary = platformById(detected);
+  // With no store for this device (e.g. Windows), open the platform list straight away.
+  const [showAll, setShowAll] = useState(!primary);
+
   return (
-    <a href={s.url} className={`btn ${primary ? 'btn-primary' : 'btn-secondary'} bb-store-btn`} target='_blank' rel='noopener noreferrer'>
-      <Icon size={22} />
-      <span className='bb-store-text'>
-        <small>{id === 'apple' ? 'Download on the' : 'Get it on'}</small>
-        {s.label}
-      </span>
-    </a>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem', marginTop: '1.5rem', width: '100%' }}>
+      {primary && (
+        <a href={primary.storeUrl} className='btn btn-primary' target='_blank' rel='noopener noreferrer' style={{ width: '100%', maxWidth: '320px' }}>
+          <primary.Icon size={20} /> Download for {primary.name}
+        </a>
+      )}
+
+      <button
+        onClick={() => setShowAll(!showAll)}
+        className='btn btn-secondary'
+        style={{ width: '100%', maxWidth: '320px', padding: '0.5rem 1rem', fontSize: '0.9rem', marginTop: primary ? '1rem' : 0 }}
+      >
+        {showAll ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+        {showAll ? 'Hide all platforms' : 'Show all platforms'}
+      </button>
+
+      {showAll && (
+        <div
+          className='platform-slider'
+          style={{ display: 'flex', overflowX: 'auto', scrollSnapType: 'x mandatory', gap: '1.5rem', padding: '1rem 0.5rem', width: '100%', WebkitOverflowScrolling: 'touch', marginTop: '0.5rem' }}
+        >
+          {PLATFORMS.map((p) => (
+            <div
+              key={p.id}
+              className='glass'
+              style={{
+                flex: '0 0 240px',
+                scrollSnapAlign: 'center',
+                padding: '2rem',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '0.5rem',
+                borderRadius: '1rem',
+                textAlign: 'center',
+                opacity: p.storeUrl ? 1 : 0.7,
+              }}
+            >
+              <p.Icon size={32} />
+              <h3 style={{ margin: '0.5rem 0 0', fontSize: '1.25rem' }}>{p.name}</h3>
+              <p style={{ margin: '0 0 1rem', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>{p.desc}</p>
+              {p.storeUrl ? (
+                <a href={p.storeUrl} className='btn btn-secondary' target='_blank' rel='noopener noreferrer' style={{ width: '100%', fontSize: '0.9rem', padding: '0.5rem' }}>
+                  Download
+                </a>
+              ) : (
+                <span className='btn btn-secondary' aria-disabled='true' style={{ width: '100%', fontSize: '0.9rem', padding: '0.5rem', cursor: 'default', pointerEvents: 'none' }}>
+                  Coming soon
+                </span>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -250,13 +312,13 @@ function Shorts({ base }) {
 export default function BloopBrigade() {
   const base = import.meta.env.BASE_URL;
   const [searchParams] = useSearchParams();
-  const detected = detectStore(searchParams.get('platform'));
+  const detected = detectPlatform(searchParams.get('platform'));
   // ?redirect sends phones and Macs straight to their store (handy for QR codes and video links).
   const [redirecting, setRedirecting] = useState(searchParams.has('redirect') && !!detected);
 
   useEffect(() => {
     if (!redirecting) return;
-    window.location.href = STORES[detected].url;
+    window.location.href = platformById(detected).storeUrl;
     const t = setTimeout(() => setRedirecting(false), 2500);
     return () => clearTimeout(t);
   }, [redirecting, detected]);
@@ -267,13 +329,10 @@ export default function BloopBrigade() {
         <div className='animate-float'>
           <img src={`${base}bloop-brigade.png`} alt='Bloop Brigade icon' style={{ width: '64px', height: '64px', borderRadius: '16px' }} />
         </div>
-        <p style={{ color: 'var(--text-secondary)' }}>Opening {STORES[detected].label}...</p>
+        <p style={{ color: 'var(--text-secondary)' }}>Redirecting to the {platformById(detected).store}...</p>
       </div>
     );
   }
-
-  // The visitor's own store goes first (and is highlighted); otherwise both look the same.
-  const order = detected === 'google' ? ['google', 'apple'] : ['apple', 'google'];
 
   return (
     <div className='app-page'>
@@ -284,11 +343,7 @@ export default function BloopBrigade() {
         <span className='bb-badge'>Out now</span>
         <h1 className='gradient-text'>Bloop Brigade</h1>
         <p>A colourful co-op tower defence game for 1 to 4 players. Pop the Grumbles and protect the Star Seed!</p>
-        <div className='bb-stores'>
-          {order.map((id, i) => (
-            <StoreButton key={id} id={id} primary={!detected || i === 0} />
-          ))}
-        </div>
+        <DownloadOptions detected={detected} />
         <p className='bb-fineprint'>iPhone, iPad, Mac and Android · No ads or in-app purchases · Developed and published by {COMPANY.name}</p>
       </section>
 
@@ -326,11 +381,7 @@ export default function BloopBrigade() {
         <div className='glass' style={{ padding: '2.5rem 1.5rem', borderRadius: '1rem', textAlign: 'center' }}>
           <h2 style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>Ready to pop some Grumbles?</h2>
           <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>One purchase, the whole game. Every outfit is unlocked by playing.</p>
-          <div className='bb-stores'>
-            {order.map((id, i) => (
-              <StoreButton key={id} id={id} primary={!detected || i === 0} />
-            ))}
-          </div>
+          <DownloadOptions detected={detected} />
         </div>
       </section>
 
@@ -346,11 +397,11 @@ export default function BloopBrigade() {
             ))}
             <dt>Get the game</dt>
             <dd>
-              <a href={STORES.apple.url} target='_blank' rel='noopener noreferrer'>
+              <a href={STORE_URLS.apple} target='_blank' rel='noopener noreferrer'>
                 App Store
               </a>{' '}
               ·{' '}
-              <a href={STORES.google.url} target='_blank' rel='noopener noreferrer'>
+              <a href={STORE_URLS.google} target='_blank' rel='noopener noreferrer'>
                 Google Play
               </a>
             </dd>
