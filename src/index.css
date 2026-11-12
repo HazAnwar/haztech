@@ -624,9 +624,18 @@ a:hover {
 .bb-shot img {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: var(--shot-aspect, 16 / 9);
   object-fit: cover;
   transition: transform 0.3s ease;
+}
+
+/* Tall phone screenshots: narrower columns, shown whole at 9:16 */
+.bb-grid.is-portrait {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr));
+}
+
+.bb-shot.is-portrait img {
+  aspect-ratio: 9 / 16;
 }
 
 .bb-shot:hover img,

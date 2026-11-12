@@ -1,50 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
-import Carousel from '../Carousel';
-import Section from '../app/Section';
-import useIsMobile from '../../hooks/useIsMobile';
+import Carousel from './Carousel';
+import Section from './app/Section';
+import useIsMobile from '../hooks/useIsMobile';
 
-const GALLERIES = {
-  mobile: {
-    label: 'On your phone',
-    dir: 'mobile/',
-    shots: [
-      ['01_swarm.jpg', 'Holding back a swarm of Grumbles with the touch controls'],
-      ['02_poppers.jpg', 'A line of Popper towers guarding the path'],
-      ['03_night.jpg', 'Defending the island at night'],
-      ['04_locker.jpg', 'Dressing up a Bloop in the Locker'],
-      ['05_place.jpg', 'Placing a new tower beside the path'],
-      ['06_king.jpg', 'Facing the King Grumble boss'],
-      ['07_challenges.jpg', 'The Challenges screen'],
-      ['08_storm.jpg', 'Fighting on through a storm'],
-    ],
-  },
-  scenes: {
-    label: 'Around the island',
-    dir: '',
-    shots: [
-      ['01_island.jpg', 'The island and its volcano at dawn'],
-      ['04_friends.jpg', 'Four friends in costumes defending together'],
-      ['05_splitscreen.jpg', 'Four-player split-screen'],
-      ['03_chase.jpg', 'A Bloop running from a pack of Grumbles'],
-      ['02_portal.jpg', 'Grumbles pouring out of a portal'],
-      ['06_defend.jpg', 'Towers and Bloops defending the path'],
-      ['07_boss.jpg', 'The King Grumble boss'],
-      ['08_eruption.jpg', 'The volcano erupting and the island growing'],
-      ['09_night.jpg', 'The island at night'],
-      ['10_towers.jpg', 'A wall of upgraded towers'],
-    ],
-  },
-};
-
-export default function Gallery() {
+/**
+ * A tabbed screenshot gallery with a lightbox: a grid on desktop, a swipeable carousel on phones.
+ *
+ * root: the folder under public/ holding the images, e.g. 'bloop-brigade/'.
+ * galleries: { [id]: { label, dir, shots: [[file, caption]], portrait? } }. The tabs only show when there's more
+ * than one. `portrait` is for tall phone screenshots (9:16); `aspect` sets another shape (e.g. '16 / 10'); the
+ * default is 16:9.
+ */
+export default function Gallery({ root, galleries, title = 'Screenshots' }) {
   const base = import.meta.env.BASE_URL;
   const isMobile = useIsMobile();
-  const [tab, setTab] = useState('mobile');
+  const ids = Object.keys(galleries);
+  const [tab, setTab] = useState(ids[0]);
   const [open, setOpen] = useState(-1);
-  const g = GALLERIES[tab];
+  const g = galleries[tab];
   const n = g.shots.length;
-  const src = (file) => `${base}bloop-brigade/${g.dir}${file}`;
+  const src = (file) => `${base}${root}${g.dir}${file}`;
   const step = (d) => setOpen((i) => (i + d + n) % n);
 
   useEffect(() => {
@@ -63,20 +39,34 @@ export default function Gallery() {
     };
   }, [open, n]);
 
+  const shape = g.portrait ? ' is-portrait' : '';
+  const aspect = g.aspect ? { '--shot-aspect': g.aspect } : undefined;
+
   return (
-    <Section title='Screenshots' className='section-tabbed'>
-      <div className='bb-tabs' role='tablist'>
-        {Object.entries(GALLERIES).map(([id, v]) => (
-          <button key={id} role='tab' aria-selected={tab === id} className={tab === id ? 'active' : ''} onClick={() => setTab(id)}>
-            {v.label}
-          </button>
-        ))}
-      </div>
+    <Section title={title} className={ids.length > 1 ? 'section-tabbed' : ''}>
+      {ids.length > 1 && (
+        <div className='bb-tabs' role='tablist'>
+          {ids.map((id) => (
+            <button
+              key={id}
+              role='tab'
+              aria-selected={tab === id}
+              className={tab === id ? 'active' : ''}
+              onClick={() => {
+                setTab(id);
+                setOpen(-1);
+              }}
+            >
+              {galleries[id].label}
+            </button>
+          ))}
+        </div>
+      )}
       {isMobile ? (
-        <Carousel key={tab} label={`${g.label} screenshots`} count={n}>
+        <Carousel key={tab} label={`${g.label || title} screenshots`} count={n} className={g.portrait ? 'carousel-clips' : ''}>
           {g.shots.map(([file, alt], i) => (
             <figure key={file}>
-              <button className='bb-shot' onClick={() => setOpen(i)} aria-label={`View larger: ${alt}`}>
+              <button className={`bb-shot${shape}`} style={aspect} onClick={() => setOpen(i)} aria-label={`View larger: ${alt}`}>
                 <img src={src(file)} alt={alt} loading='lazy' />
               </button>
               <figcaption>{alt}</figcaption>
@@ -84,9 +74,9 @@ export default function Gallery() {
           ))}
         </Carousel>
       ) : (
-        <div className='bb-grid'>
+        <div className={`bb-grid${shape}`}>
           {g.shots.map(([file, alt], i) => (
-            <button key={tab + file} className='bb-shot' onClick={() => setOpen(i)} aria-label={`View larger: ${alt}`}>
+            <button key={tab + file} className={`bb-shot${shape}`} style={aspect} onClick={() => setOpen(i)} aria-label={`View larger: ${alt}`}>
               <img src={src(file)} alt={alt} loading='lazy' />
             </button>
           ))}

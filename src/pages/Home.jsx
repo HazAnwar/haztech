@@ -2,30 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { COMPANY } from '../company';
-
-const PRODUCTS = [
-  {
-    name: 'Bloop Brigade',
-    icon: 'bloop-brigade.png',
-    path: '/bloop-brigade',
-    kind: 'Game · iOS, macOS and Android',
-    desc: 'A colourful co-op tower defence game for 1 to 4 players. Pop the Grumbles, build towers and protect the Star Seed, solo, in split-screen or online.',
-  },
-  {
-    name: 'Markaz',
-    icon: 'markaz.png',
-    path: '/markaz',
-    kind: 'App · iOS, Android, macOS, Windows, Linux and web',
-    desc: 'An all-in-one app for Muslims, with accurate prayer times, a Qibla locator, the Quran and more.',
-  },
-  {
-    name: 'Leap Launcher',
-    icon: 'leap.png',
-    path: '/leap-launcher',
-    kind: 'App · Android and Android TV',
-    desc: 'A simple, elegant and fast home screen launcher for Android phones and TVs.',
-  },
-];
+import { PRODUCTS } from '../products';
 
 export default function Home() {
   return (
@@ -52,7 +29,7 @@ export default function Home() {
           </div>
         </div>
         <h1 className='gradient-text'>HazTech Services</h1>
-        <p>{COMPANY.name} is an independent developer and publisher. We make Bloop Brigade, Markaz and Leap Launcher, and design every product to be fun, simple and respectful of your privacy.</p>
+        <p>{COMPANY.name} is an independent developer and publisher. We make Bloop Brigade, Markaz and Leap Launcher, and design every product to be simple, fast and free of ads.</p>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', width: '100%' }}>
           <Link to='/apps' className='btn btn-primary' style={{ width: '100%', maxWidth: '280px' }}>
             Explore our products <ArrowRight size={20} />

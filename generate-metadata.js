@@ -1,5 +1,8 @@
 import fs from 'fs';
 import path from 'path';
+import { PRODUCTS } from './src/products.js';
+
+const productDesc = (name) => PRODUCTS.find((p) => p.name === name).desc;
 
 const distDir = path.resolve('dist');
 const indexFile = path.join(distDir, 'index.html');
@@ -54,19 +57,14 @@ ${extraMeta}  `;
 };
 
 // --- Markaz ---
-const markazHtml = generateHtml(
-  'HazTech Services | Markaz App',
-  'Discover Markaz: the ultimate all-in-one, cross-platform companion for Muslims. Accurate prayer times, Qibla, and completely ad-free.',
-  '/markaz',
-  '/markaz.png',
-);
+const markazHtml = generateHtml('HazTech Services | Markaz', productDesc('Markaz'), '/markaz', '/markaz.png');
 fs.mkdirSync(path.join(distDir, 'markaz'), { recursive: true });
 fs.writeFileSync(path.join(distDir, 'markaz', 'index.html'), markazHtml);
 
 // --- Bloop Brigade ---
 const bloopHtml = generateHtml(
   'HazTech Services | Bloop Brigade',
-  'A colourful co-op tower defence game for all ages. Pop the Grumbles and protect the Star Energy, solo or together. Out now on the App Store and Google Play.',
+  `${productDesc('Bloop Brigade')} Out now on the App Store and Google Play.`,
   '/bloop-brigade',
   '/bloop-brigade-og.jpg',
   // Safari's Smart App Banner on iPhone, iPad and Mac.
@@ -76,17 +74,12 @@ fs.mkdirSync(path.join(distDir, 'bloop-brigade'), { recursive: true });
 fs.writeFileSync(path.join(distDir, 'bloop-brigade', 'index.html'), bloopHtml);
 
 // --- Leap Launcher ---
-const leapHtml = generateHtml(
-  'HazTech Services | Leap Launcher',
-  'A simple and elegant launcher for your Android Mobile & TV. Experience a distraction-free digital life.',
-  '/leap-launcher',
-  '/leap.png',
-);
+const leapHtml = generateHtml('HazTech Services | Leap Launcher', productDesc('Leap Launcher'), '/leap-launcher', '/leap.png');
 fs.mkdirSync(path.join(distDir, 'leap-launcher'), { recursive: true });
 fs.writeFileSync(path.join(distDir, 'leap-launcher', 'index.html'), leapHtml);
 
 // --- Apps ---
-const appsHtml = generateHtml('HazTech Services | Apps', 'Explore our portfolio of premium mobile and web applications.', '/apps', '/og-image.jpg');
+const appsHtml = generateHtml('HazTech Services | Apps', 'Bloop Brigade, Markaz and Leap Launcher: games and apps for phones, tablets, computers and TVs, with no ads.', '/apps', '/og-image.jpg');
 fs.mkdirSync(path.join(distDir, 'apps'), { recursive: true });
 fs.writeFileSync(path.join(distDir, 'apps', 'index.html'), appsHtml);
 

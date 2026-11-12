@@ -7,7 +7,7 @@ import DownloadOptions from '../components/app/DownloadOptions';
 import FeatureGrid from '../components/app/FeatureGrid';
 import Section from '../components/app/Section';
 import TrailerBanner from '../components/bloop/TrailerBanner';
-import Gallery from '../components/bloop/Gallery';
+import Gallery from '../components/Gallery';
 import Shorts from '../components/bloop/Shorts';
 import { useOneVideoAtATime } from '../hooks/useVideoPlayback';
 
@@ -22,23 +22,65 @@ const PLATFORMS = [
   { id: 'pc', name: 'PC & Consoles', Icon: Gamepad2, desc: 'Coming later' },
 ];
 
+const GALLERIES = {
+  mobile: {
+    label: 'On your phone',
+    dir: 'mobile/',
+    shots: [
+      ['01_swarm.jpg', 'Holding back a swarm of Grumbles with the touch controls'],
+      ['02_poppers.jpg', 'A line of Popper towers guarding the path'],
+      ['03_night.jpg', 'Defending the island at night'],
+      ['04_locker.jpg', 'Dressing up a Bloop in the Locker'],
+      ['05_place.jpg', 'Placing a new tower beside the path'],
+      ['06_king.jpg', 'Facing the King Grumble boss'],
+      ['07_chase.jpg', 'Heading out past a blaster kiosk as the Grumbles arrive'],
+      ['08_storm.jpg', 'Fighting on through a storm'],
+    ],
+  },
+  scenes: {
+    label: 'Around the island',
+    dir: '',
+    shots: [
+      ['01_island.jpg', 'The island and its volcano at dawn'],
+      ['04_friends.jpg', 'Four friends in costumes defending together'],
+      ['05_splitscreen.jpg', 'Four-player split-screen'],
+      ['03_chase.jpg', 'A Bloop running from a pack of Grumbles'],
+      ['02_portal.jpg', 'Grumbles pouring out of a portal'],
+      ['06_defend.jpg', 'Towers and Bloops defending the path'],
+      ['07_boss.jpg', 'The King Grumble boss'],
+      ['08_eruption.jpg', 'The volcano erupting and the island growing'],
+      ['09_night.jpg', 'The island at night'],
+      ['10_towers.jpg', 'A wall of upgraded towers'],
+    ],
+  },
+};
+
 const FEATURES = [
-  { title: 'Pop the Grumbles', desc: 'Blast bubbles and build towers to stop the grumpy Grumbles draining the Star Seed’s energy.' },
-  { title: 'Play Together', desc: 'Team up with up to 4 players on one screen in split-screen, or online with friends on other devices.' },
+  {
+    title: 'Pop the Grumbles',
+    desc: 'Blast bubbles and build towers to stop the grumpy Grumbles draining the Star Seed’s energy. Ten kinds of Grumble and four giant bosses, including King Grumble.',
+  },
+  { title: 'Play Together', desc: 'Host an online party and share a six-letter code, or play split-screen with controllers: two players on iPad and tablets, up to four on Mac.' },
   { title: 'A Growing Island', desc: 'Every few waves the volcano erupts and your island grows, with new paths, shops and burrows. No two runs are alike.' },
-  { title: 'Build and Upgrade', desc: 'Place Poppers, Honey Pots, Mortars and more, then upgrade them between waves to face tougher Grumbles and boss waves.' },
-  { title: 'Dress Up Your Bloop', desc: 'Unlock dozens of outfits, hats and accessories in the Locker just by playing. No real-money purchases.' },
-  { title: 'Made for Everyone', desc: 'Bright and friendly, designed for all ages. No ads, no chat and no pay-to-win.' },
+  { title: 'Build and Upgrade', desc: 'Four towers to build and upgrade, five bubble blasters to buy, and new upgrades to pick after every wave.' },
+  { title: 'Dress Up Your Bloop', desc: 'Unlock over 100 outfits, hats and accessories in 15 colours with Sparkles you earn by playing.' },
+  { title: 'Play Your Way', desc: 'Touch controls or a game controller, third- or first-person view and Chill, Normal or Hardcore difficulty.' },
+  {
+    title: 'Achievements & Cloud Saves',
+    desc: '26 achievements, a best-wave leaderboard, and progress that follows you to your other devices with Game Center or Google Play Games.',
+  },
+  { title: 'Made for Everyone', desc: 'Bright and friendly, designed for all ages. No ads, no chat, no loot boxes and no pay-to-win.' },
 ];
 
 const DETAILS = [
   ['Developer and publisher', COMPANY.name],
   ['Genre', 'Co-op tower defence'],
-  ['Players', '1 to 4 (local split-screen and online co-op)'],
+  ['Players', '1 to 4: online co-op on every device, plus split-screen with controllers (2 on iPad and tablets, up to 4 on Mac)'],
   ['Available on', 'iPhone, iPad, Mac and Apple Vision Pro (App Store); Android phones and tablets (Google Play)'],
   ['Coming later', 'PC and consoles (planned)'],
   ['Requires', 'iOS / iPadOS 15 or later (A12 Bionic or newer), macOS 12 or later, Android 7.0 or later'],
   ['Price', 'One-off purchase. No ads, no loot boxes and no in-app purchases'],
+  ['Achievements', '26 achievements and a best-wave leaderboard (Game Center and Google Play Games)'],
   ['Languages', 'English, French, German, Spanish, Italian, Portuguese (Brazil), Japanese, Simplified Chinese, Arabic'],
   ['Age rating', 'App Store 4+ · PEGI 3. Designed for all ages'],
 ];
@@ -47,7 +89,12 @@ export default function BloopBrigade() {
   useOneVideoAtATime();
 
   return (
-    <AppPage name='Bloop Brigade' icon='bloop-brigade.png' tagline='A colourful co-op tower defence game for 1 to 4 players. Pop the Grumbles and protect the Star Seed!' platforms={PLATFORMS}>
+    <AppPage
+      name='Bloop Brigade'
+      icon='bloop-brigade.png'
+      tagline='A colourful co-op tower defence game for all ages. Pop the Grumbles, build towers and protect the Star Seed, solo or with friends!'
+      platforms={PLATFORMS}
+    >
       <Section>
         <TrailerBanner />
       </Section>
@@ -60,7 +107,7 @@ export default function BloopBrigade() {
         <p>Play solo, with friends and family on the same screen, or online with players on other devices.</p>
       </Section>
 
-      <Gallery />
+      <Gallery root='bloop-brigade/' galleries={GALLERIES} />
 
       <Shorts />
 
