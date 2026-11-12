@@ -17,6 +17,15 @@
   --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
 
   --border-color: #e5e7eb;
+
+  /* Hero backdrop */
+  --hb-field-1: rgba(37, 99, 235, 0.22);
+  --hb-field-2: rgba(14, 165, 233, 0.22);
+  --hb-field-3: rgba(99, 102, 241, 0.16);
+  --hb-beam: rgba(14, 165, 233, 0.08);
+  --hb-line: rgba(15, 23, 42, 0.06);
+  --hb-line-lit: rgba(37, 99, 235, 0.45);
+  --hb-glow: rgba(37, 99, 235, 0.1);
 }
 
 [data-theme='dark'] {
@@ -36,6 +45,14 @@
   --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 
   --border-color: #1e293b;
+
+  --hb-field-1: rgba(59, 130, 246, 0.3);
+  --hb-field-2: rgba(0, 255, 225, 0.16);
+  --hb-field-3: rgba(99, 102, 241, 0.24);
+  --hb-beam: rgba(0, 255, 225, 0.06);
+  --hb-line: rgba(255, 255, 255, 0.05);
+  --hb-line-lit: rgba(0, 255, 225, 0.5);
+  --hb-glow: rgba(59, 130, 246, 0.14);
 }
 
 * {
@@ -57,6 +74,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
+  overflow-x: clip;
   transition:
     background-color 0.3s ease,
     color 0.3s ease;
@@ -229,6 +247,148 @@ a:hover {
   color: var(--text-secondary);
   max-width: 600px;
   margin-bottom: 2.5rem;
+}
+
+/* Immersive hero backdrop (HeroBackdrop.jsx). The hero sits inside the page container, so the backdrop breaks out
+   to the full viewport width and up under the floating header (by the main content's top padding). */
+.hero-immersive {
+  --hb-bleed-top: 8rem;
+  position: relative;
+  isolation: isolate;
+}
+
+.hero-backdrop {
+  position: absolute;
+  z-index: -1;
+  top: calc(var(--hb-bleed-top) * -1);
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+  overflow: hidden;
+  pointer-events: none;
+  /* Fade out at the bottom so the hero melts into the page instead of ending in a hard edge */
+  -webkit-mask-image: linear-gradient(to bottom, #000 65%, transparent);
+  mask-image: linear-gradient(to bottom, #000 65%, transparent);
+}
+
+.hero-backdrop > span {
+  position: absolute;
+}
+
+/* Colour fields: large soft blobs that drift and breathe on long, out-of-step loops */
+.hb-field {
+  width: 60vmax;
+  height: 60vmax;
+  border-radius: 50%;
+  filter: blur(20px);
+  will-change: transform;
+  animation: hb-drift var(--dur) ease-in-out infinite alternate;
+}
+.hb-field-1 {
+  --dur: 24s;
+  --dx: 10vw;
+  --dy: 8vh;
+  top: -28vmax;
+  left: -18vmax;
+  background: radial-gradient(closest-side, var(--hb-field-1), transparent);
+}
+.hb-field-2 {
+  --dur: 30s;
+  --dx: -12vw;
+  --dy: 10vh;
+  top: -22vmax;
+  right: -22vmax;
+  background: radial-gradient(closest-side, var(--hb-field-2), transparent);
+  animation-delay: -10s;
+}
+.hb-field-3 {
+  --dur: 36s;
+  --dx: 8vw;
+  --dy: -10vh;
+  bottom: -38vmax;
+  left: 20vw;
+  background: radial-gradient(closest-side, var(--hb-field-3), transparent);
+  animation-delay: -18s;
+}
+@keyframes hb-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(calc(var(--dx) * 0.5), var(--dy), 0) scale(1.12);
+  }
+  100% {
+    transform: translate3d(var(--dx), calc(var(--dy) * -0.5), 0) scale(0.94);
+  }
+}
+
+/* A slow light sweep from above, like a searchlight behind the logo */
+.hb-beam {
+  top: -60vmax;
+  left: 50%;
+  width: 120vmax;
+  height: 120vmax;
+  margin-left: -60vmax;
+  background: conic-gradient(from 160deg, transparent 0deg, var(--hb-beam) 20deg, transparent 40deg, transparent 180deg, var(--hb-beam) 200deg, transparent 220deg);
+  -webkit-mask-image: radial-gradient(closest-side, #000 20%, transparent);
+  mask-image: radial-gradient(closest-side, #000 20%, transparent);
+  animation: hb-sweep 40s linear infinite;
+}
+@keyframes hb-sweep {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* A blueprint grid, strongest around the content and fading out to the edges. A brighter copy shows only under
+   the cursor. */
+.hb-grid,
+.hb-grid::after {
+  inset: 0;
+  background-image: linear-gradient(var(--hb-line) 1px, transparent 1px), linear-gradient(90deg, var(--hb-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-position: center top;
+}
+.hb-grid {
+  -webkit-mask-image: radial-gradient(ellipse 70% 65% at 50% 45%, #000 25%, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 65% at 50% 45%, #000 25%, transparent 75%);
+}
+.hb-grid::after {
+  content: '';
+  position: absolute;
+  background-image: linear-gradient(var(--hb-line-lit) 1px, transparent 1px), linear-gradient(90deg, var(--hb-line-lit) 1px, transparent 1px);
+  -webkit-mask-image: radial-gradient(180px circle at var(--mx, 50%) var(--my, 40%), #000, transparent);
+  mask-image: radial-gradient(180px circle at var(--mx, 50%) var(--my, 40%), #000, transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.hb-glow {
+  inset: 0;
+  background: radial-gradient(480px circle at var(--mx, 50%) var(--my, 40%), var(--hb-glow), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.hero-backdrop.is-lit .hb-glow,
+.hero-backdrop.is-lit .hb-grid::after {
+  opacity: 1;
+}
+
+@media (max-width: 580px) {
+  .hero-immersive {
+    --hb-bleed-top: 10rem;
+  }
+  .hb-grid,
+  .hb-grid::after {
+    background-size: 36px 36px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hb-field,
+  .hb-beam {
+    animation: none;
+  }
 }
 
 /* Buttons */

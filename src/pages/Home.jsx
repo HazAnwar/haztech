@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { COMPANY } from '../company';
 import { PRODUCTS } from '../products';
+import HeroBackdrop from '../components/HeroBackdrop';
 
 export default function Home() {
   return (
     <div className='home-page'>
-      <section className='hero'>
+      <section className='hero hero-immersive'>
+        <HeroBackdrop />
         <div className='animate-float' style={{ marginBottom: '2rem', display: 'flex', justifyContent: 'center' }}>
           <div
             style={{
