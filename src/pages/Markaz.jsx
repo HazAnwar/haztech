@@ -4,19 +4,21 @@ import AppPage from '../components/app/AppPage';
 import FeatureGrid from '../components/app/FeatureGrid';
 import Section from '../components/app/Section';
 import Gallery from '../components/Gallery';
+import { product } from '../products';
 
-const APP_STORE = 'https://apps.apple.com/us/app/markaz/id6783402543';
+const STORES = product('Markaz').stores;
+const APP_STORE = STORES.appStore;
 
 const PLATFORMS = [
-  { id: 'android', desc: 'Mobile, Tablet & Watch', url: 'https://play.google.com/store/apps/details?id=com.haztech.prayer' },
+  { id: 'android', desc: 'Mobile, Tablet & Watch', url: STORES.googlePlay },
   { id: 'ios', desc: 'iOS, iPadOS & watchOS', url: APP_STORE },
   { id: 'mac', desc: 'Apple Silicon & Intel', url: APP_STORE },
-  { id: 'windows', desc: 'Windows 10 & 11', url: 'https://apps.microsoft.com/detail/9N53LTXNFFTZ' },
-  { id: 'linux', desc: 'Debian, Fedora, Ubuntu', url: 'https://snapcraft.io/markaz' },
-  { id: 'web', desc: 'Any Browser', url: 'https://markaz.haztech.services/' },
+  { id: 'windows', desc: 'Windows 10 & 11', url: STORES.microsoft },
+  { id: 'linux', desc: 'Debian, Fedora, Ubuntu', url: STORES.snapcraft },
+  { id: 'web', desc: 'Any Browser', url: STORES.web },
 ];
 
-const LINKS = [{ href: 'https://github.com/HazAnwar/markaz', Icon: GitBranch, label: 'View / Download on GitHub' }];
+const LINKS = [{ href: STORES.github, Icon: GitBranch, label: 'View / Download on GitHub' }];
 
 const GALLERIES = {
   phone: {

@@ -177,6 +177,7 @@ a:hover {
 
 .copyright {
   color: var(--text-secondary);
+  font-size: 0.9rem;
   padding: 0 1.5rem;
   margin: 0 auto;
   line-height: 1.8;
@@ -185,8 +186,19 @@ a:hover {
 .footer-nav {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  margin-top: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin-top: 0.75rem;
+  padding: 0 1.5rem;
+  font-size: 0.9rem;
+}
+
+.footer-nav a {
+  color: var(--text-secondary);
+}
+
+.footer-nav a:hover {
+  color: var(--primary-color);
 }
 
 /* Main Content */
@@ -312,11 +324,6 @@ a:hover {
     padding: 2rem 0;
     margin-top: 3rem;
   }
-
-  .footer-nav {
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
 }
 
 @media (max-width: 580px) {
@@ -349,12 +356,6 @@ a:hover {
 
   .hero p {
     font-size: 1.1rem;
-  }
-
-  .footer-nav {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
   }
 
   [id] {

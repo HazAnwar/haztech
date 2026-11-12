@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Layout from './components/Layout';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
@@ -11,13 +11,20 @@ import LeapLauncher from './pages/LeapLauncher';
 import Markaz from './pages/Markaz';
 import BloopBrigade from './pages/BloopBrigade';
 import NotFound from './pages/NotFound';
+import { routeFor } from './seo';
 
+// The router is supplied from outside: BrowserRouter in the browser (main.jsx), StaticRouter when prerendering
+// (entry-server.jsx).
 export default function App() {
-  const isGithub = window.location.hostname.includes('github.io');
-  const basePath = isGithub ? '/haztech' : '/';
+  const { pathname } = useLocation();
+
+  // Each page's HTML is built with its own title; keep it right as you move between pages without a reload.
+  useEffect(() => {
+    document.title = routeFor(pathname).title;
+  }, [pathname]);
 
   return (
-    <Router basename={basePath}>
+    <>
       <ScrollToTop />
       <Layout>
         <Routes>
@@ -32,6 +39,6 @@ export default function App() {
           <Route path='*' element={<NotFound />} />
         </Routes>
       </Layout>
-    </Router>
+    </>
   );
 }

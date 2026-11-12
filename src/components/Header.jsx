@@ -2,19 +2,16 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Moon, Sun, Code2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+// index.html's inline script has already picked the theme (saved choice, else the system's) before anything paints.
 function getInitialTheme() {
-  const saved = localStorage.getItem('theme');
-  if (saved) return saved;
-  if (typeof window !== 'undefined') {
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  }
-  return 'dark';
+  if (typeof document === 'undefined') return 'light';
+  return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
 }
 
 export default function Header() {
   const [theme, setTheme] = useState(getInitialTheme);
   const headerRef = useRef(null);
-  const lastScrollY = useRef(window.scrollY);
+  const lastScrollY = useRef(0);
   const offset = useRef(0);
 
   useEffect(() => {

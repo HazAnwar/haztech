@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && cp dist/index.html dist/404.html && node generate-metadata.js",
+    "build": "vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr --base / && node prerender.js",
     "lint": "eslint .",
     "format": "prettier --write \"src/**/*.{js,jsx,json,css}\" \"*.{js,jsx}\"",
     "preview": "vite preview"

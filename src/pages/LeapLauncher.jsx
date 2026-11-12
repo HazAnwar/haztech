@@ -4,12 +4,15 @@ import AppPage from '../components/app/AppPage';
 import FeatureGrid from '../components/app/FeatureGrid';
 import Section from '../components/app/Section';
 import Gallery from '../components/Gallery';
+import { product } from '../products';
 
-const PLATFORMS = [{ id: 'android', url: 'https://play.google.com/store/apps/details?id=com.haztech.launcher', cta: 'Download on Google Play', store: 'Google Play' }];
+const STORES = product('Leap Launcher').stores;
+
+const PLATFORMS = [{ id: 'android', url: STORES.googlePlay, cta: 'Download on Google Play', store: 'Google Play' }];
 
 const LINKS = [
-  { href: 'https://github.com/HazAnwar/leap-launcher/releases/latest', Icon: Download, label: 'Download APK' },
-  { href: 'https://github.com/HazAnwar/leap-launcher', Icon: GitBranch, label: 'View on GitHub' },
+  { href: `${STORES.github}/releases/latest`, Icon: Download, label: 'Download APK' },
+  { href: STORES.github, Icon: GitBranch, label: 'View on GitHub' },
 ];
 
 const GALLERIES = {

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Gamepad2 } from 'lucide-react';
 import { COMPANY } from '../company';
+import { product } from '../products';
 import AppPage from '../components/app/AppPage';
 import DownloadOptions from '../components/app/DownloadOptions';
 import FeatureGrid from '../components/app/FeatureGrid';
@@ -11,8 +12,7 @@ import Gallery from '../components/Gallery';
 import Shorts from '../components/bloop/Shorts';
 import { useOneVideoAtATime } from '../hooks/useVideoPlayback';
 
-const APP_STORE = 'https://apps.apple.com/app/bloop-brigade/id6818502459';
-const GOOGLE_PLAY = 'https://play.google.com/store/apps/details?id=com.haztech.bloopbrigade';
+const { appStore: APP_STORE, googlePlay: GOOGLE_PLAY } = product('Bloop Brigade').stores;
 
 // Checked against the game's export settings: iOS 15+ (A12), macOS 12+ universal, Android 7.0+ 64-bit.
 const PLATFORMS = [
