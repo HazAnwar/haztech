@@ -22,7 +22,7 @@ const PLATFORMS = [
   // Mac is also on Epic: its own card (Mac visitors' main button stays the App Store).
   { id: 'mac-epic', name: 'macOS', Icon: IconApple, desc: 'Apple Silicon & Intel · Epic Games Store', url: EPIC, store: 'the Epic Games Store' },
   { id: 'android', desc: 'Phones & Tablets', url: GOOGLE_PLAY, store: 'Google Play' },
-  { id: 'windows', name: 'Windows PC', desc: 'Windows 10 & 11 · Epic Games Store', url: EPIC, store: 'the Epic Games Store', cta: 'Get it on the Epic Games Store', cardCta: 'Get it' },
+  { id: 'windows', name: 'Windows PC', desc: 'Windows 10 & 11 · Epic Games Store', url: EPIC, store: 'the Epic Games Store' },
   { id: 'consoles', name: 'Consoles', Icon: Gamepad2, desc: 'Coming later' },
 ];
 
