@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Gamepad2 } from 'lucide-react';
+import { IconApple } from '../components/PlatformIcons';
 import { COMPANY } from '../company';
 import { product } from '../products';
 import AppPage from '../components/app/AppPage';
@@ -12,14 +13,17 @@ import Gallery from '../components/Gallery';
 import Shorts from '../components/bloop/Shorts';
 import { useOneVideoAtATime } from '../hooks/useVideoPlayback';
 
-const { appStore: APP_STORE, googlePlay: GOOGLE_PLAY } = product('Bloop Brigade').stores;
+const { appStore: APP_STORE, googlePlay: GOOGLE_PLAY, epic: EPIC } = product('Bloop Brigade').stores;
 
-// Checked against the game's export settings: iOS 15+ (A12), macOS 12+ universal, Android 7.0+ 64-bit.
+// Checked against the game's export settings: iOS 15+ (A12), macOS 12+ universal, Android 7.0+ 64-bit, Windows 10+ 64-bit.
 const PLATFORMS = [
   { id: 'ios', desc: 'iPhone, iPad & Vision Pro', url: APP_STORE, store: 'the App Store' },
-  { id: 'mac', desc: 'Apple Silicon & Intel', url: APP_STORE, store: 'the App Store' },
+  { id: 'mac', desc: 'Apple Silicon & Intel · App Store', url: APP_STORE, store: 'the App Store' },
+  // Mac is also on Epic: its own card (Mac visitors' main button stays the App Store).
+  { id: 'mac-epic', name: 'macOS', Icon: IconApple, desc: 'Apple Silicon & Intel · Epic Games Store', url: EPIC, store: 'the Epic Games Store' },
   { id: 'android', desc: 'Phones & Tablets', url: GOOGLE_PLAY, store: 'Google Play' },
-  { id: 'pc', name: 'PC & Consoles', Icon: Gamepad2, desc: 'Coming later' },
+  { id: 'windows', name: 'Windows PC', desc: 'Windows 10 & 11 · Epic Games Store', url: EPIC, store: 'the Epic Games Store', cta: 'Get it on the Epic Games Store', cardCta: 'Get it' },
+  { id: 'consoles', name: 'Consoles', Icon: Gamepad2, desc: 'Coming later' },
 ];
 
 const GALLERIES = {
@@ -60,14 +64,14 @@ const FEATURES = [
     title: 'Pop the Grumbles',
     desc: 'Blast bubbles and build towers to stop the grumpy Grumbles draining the Star Seed’s energy. Ten kinds of Grumble and four giant bosses, including King Grumble.',
   },
-  { title: 'Play Together', desc: 'Host an online party and share a six-letter code, or play split-screen with controllers: two players on iPad and tablets, up to four on Mac.' },
+  { title: 'Play Together', desc: 'Host an online party and share a six-letter code, or play split-screen with controllers: two players on iPad and tablets, up to four on PC and Mac.' },
   { title: 'A Growing Island', desc: 'Every few waves the volcano erupts and your island grows, with new paths, shops and burrows. No two runs are alike.' },
   { title: 'Build and Upgrade', desc: 'Four towers to build and upgrade, five bubble blasters to buy, and new upgrades to pick after every wave.' },
   { title: 'Dress Up Your Bloop', desc: 'Unlock over 100 outfits, hats and accessories in 15 colours with Sparkles you earn by playing.' },
   { title: 'Play Your Way', desc: 'Touch controls or a game controller, third- or first-person view and Chill, Normal or Hardcore difficulty.' },
   {
     title: 'Achievements & Cloud Saves',
-    desc: '26 achievements, a best-wave leaderboard, and progress that follows you to your other devices with Game Center or Google Play Games.',
+    desc: '26 achievements, a best-wave leaderboard, and progress that follows you to your other devices with your Epic account, Game Center or Google Play Games.',
   },
   { title: 'Made for Everyone', desc: 'Bright and friendly, designed for all ages. No ads, no chat, no loot boxes and no pay-to-win.' },
 ];
@@ -75,12 +79,12 @@ const FEATURES = [
 const DETAILS = [
   ['Developer and publisher', COMPANY.name],
   ['Genre', 'Co-op tower defence'],
-  ['Players', '1 to 4: online co-op on every device, plus split-screen with controllers (2 on iPad and tablets, up to 4 on Mac)'],
-  ['Available on', 'iPhone, iPad, Mac and Apple Vision Pro (App Store); Android phones and tablets (Google Play)'],
-  ['Coming later', 'PC and consoles (planned)'],
-  ['Requires', 'iOS / iPadOS 15 or later (A12 Bionic or newer), macOS 12 or later, Android 7.0 or later'],
+  ['Players', '1 to 4: online co-op on every device, plus split-screen with controllers (2 on iPad and tablets, up to 4 on PC and Mac)'],
+  ['Available on', 'Windows PC and Mac (Epic Games Store); iPhone, iPad, Mac and Apple Vision Pro (App Store); Android phones and tablets (Google Play)'],
+  ['Coming later', 'Consoles (planned)'],
+  ['Requires', 'Windows 10 or later (64-bit), macOS 12 or later, iOS / iPadOS 15 or later (A12 Bionic or newer), Android 7.0 or later'],
   ['Price', 'One-off purchase. No ads, no loot boxes and no in-app purchases'],
-  ['Achievements', '26 achievements and a best-wave leaderboard (Game Center and Google Play Games)'],
+  ['Achievements', '26 achievements (Epic Games Store, Game Center and Google Play Games) and a best-wave leaderboard (Game Center and Google Play Games)'],
   ['Languages', 'English, French, German, Spanish, Italian, Portuguese (Brazil), Japanese, Simplified Chinese, Arabic'],
   ['Age rating', 'App Store 4+ · PEGI 3. Designed for all ages'],
 ];
@@ -139,6 +143,10 @@ export default function BloopBrigade() {
               ·{' '}
               <a href={GOOGLE_PLAY} target='_blank' rel='noopener noreferrer'>
                 Google Play
+              </a>{' '}
+              ·{' '}
+              <a href={EPIC} target='_blank' rel='noopener noreferrer'>
+                Epic Games Store
               </a>
             </dd>
             <dt>Support</dt>

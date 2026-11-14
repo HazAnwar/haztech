@@ -57,7 +57,8 @@ export default function Privacy() {
           <p>
             Bloop Brigade can be played entirely offline, including local split-screen. Most of the information below only applies when you use the game&apos;s optional online features: online co-op
             parties, playing with friends, and backing up your progress so it is shared between your devices. The one exception is anonymous crash reports, which the game sends (offline or online) if
-            it crashes or hits an error, unless you turn them off.
+            it crashes or hits an error, unless you turn them off. The Epic Games Store version (Windows PC and Mac) also signs in with your Epic account when you start it from the Epic Games
+            Launcher, so that Epic can confirm your account owns the game; if you are offline, you can still play.
           </p>
 
           <Part title='What we collect'>
@@ -69,7 +70,8 @@ export default function Privacy() {
                 <strong>A player ID:</strong> a random identifier created for your device the first time you play online. It is not linked to your name, email address or phone number.
               </li>
               <li>
-                <strong>Your display name:</strong> an automatically generated name (for example, &quot;Bloop 1234&quot;), or your Epic account display name if you choose to link an Epic account.
+                <strong>Your display name:</strong> an automatically generated name (for example, &quot;Bloop 1234&quot;), or your Epic account display name if you play the Epic Games Store version or
+                choose to link an Epic account.
               </li>
               <li>
                 <strong>Game progress backup:</strong> your best wave and score, unlocked outfits, the outfits you wear, your Sparkle totals, achievements, which tips you have seen, and your game
@@ -82,8 +84,9 @@ export default function Privacy() {
                 <strong>Connection information:</strong> your IP address and basic network information, which are needed to connect your game to other players&apos; games.
               </li>
               <li>
-                <strong>Only if you link an Epic account (optional):</strong> your Epic account ID and display name; your Epic friends list, to show which friends are playing and let you invite them;
-                and your in-game status (for example, &quot;In a party&quot;), which your friends can see.
+                <strong>Your Epic account</strong> (in the Epic Games Store version, where the Epic Games Launcher signs you in, or on other devices only if you choose to link one): your Epic account
+                ID and display name; whether your account owns the game (Epic confirms this when you start the Epic Games Store version); your Epic friends list, to show which friends are playing and
+                let you invite them; your in-game status (for example, &quot;In a party&quot;), which your friends can see; and your achievements, which also appear in your Epic account.
               </li>
               <li>
                 <strong>Crash reports (you can turn these off):</strong> if the game crashes or hits an error, a report with what went wrong (including the game&apos;s technical log), the game
@@ -102,7 +105,8 @@ export default function Privacy() {
             <ul style={list}>
               <li>To run online parties and co-op games, including between different devices and platforms.</li>
               <li>To back up your progress and keep it the same on all of your devices.</li>
-              <li>To show your display name to the other players in your party, and (if you linked an Epic account) to show your friends that you are playing.</li>
+              <li>To show your display name to the other players in your party, and (if you play with an Epic account) to show your friends that you are playing.</li>
+              <li>To confirm that your copy of the Epic Games Store version was bought on your Epic account.</li>
               <li>To keep online play working and fair, and to answer your support requests.</li>
               <li>To find and fix crashes and errors (crash reports).</li>
             </ul>
@@ -112,8 +116,9 @@ export default function Privacy() {
             <ul style={list}>
               <li>
                 <strong>Epic Games, Inc.</strong> We use Epic Online Services, provided by Epic Games, Inc., to run Bloop Brigade&apos;s online features (player IDs, parties, connections between
-                players and progress backups). We share the information listed above with Epic Games only so that it can provide these services to us. Epic Games&apos; own privacy policy is available
-                at{' '}
+                players, achievements and progress backups) and, in the Epic Games Store version, to sign you in and confirm you own the game. If you buy the game on the Epic Games Store, Epic Games
+                handles your purchase and payment; we never receive your payment details. We share the information listed above with Epic Games only so that it can provide these services to us. Epic
+                Games&apos; own privacy policy is available at{' '}
                 <a href='https://www.epicgames.com/site/privacypolicy' target='_blank' rel='noopener noreferrer' style={link}>
                   epicgames.com/site/privacypolicy
                 </a>
@@ -183,6 +188,11 @@ export default function Privacy() {
                 <strong>Settings › Account › Delete my online data</strong> deletes it too) or remove the game from your account in Google Play Games or Game Center.
               </li>
               <li>
+                <strong>Your Epic account:</strong> your purchase, friends list and achievements are kept in your Epic account by Epic Games, under its privacy policy.{' '}
+                <strong>Delete my online data</strong> deletes your progress backup and signs you out of Epic in the game; it does not remove achievements from your Epic account. You can manage or
+                delete your Epic account itself at epicgames.com.
+              </li>
+              <li>
                 <strong>Crash reports:</strong> kept for up to 90 days and then deleted automatically. You can stop the game sending them at any time in{' '}
                 <strong>Settings › Gameplay › Send crash reports</strong>.
               </li>
@@ -191,8 +201,8 @@ export default function Privacy() {
 
           <Part title='Children'>
             <p>
-              Bloop Brigade is designed for players of all ages. Because it has no chat, uses automatically generated names unless you link an account, and collects no contact details, it does not ask
-              for personal information from children. If you believe a child has given us personal information, contact us and we will delete it.
+              Bloop Brigade is designed for players of all ages. Because it has no chat, uses automatically generated names unless you play with an Epic account, and collects no contact details, it
+              does not ask for personal information from children. If you believe a child has given us personal information, contact us and we will delete it.
             </p>
           </Part>
         </Section>

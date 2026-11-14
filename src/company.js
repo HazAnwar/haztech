@@ -15,4 +15,4 @@ export const COMPANY = {
   deletionEmail: 'delete@haztech.services',
 };
 
-export const POLICY_UPDATED = '1 October 2026';
+export const POLICY_UPDATED = '14 November 2026';

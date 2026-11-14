@@ -5,15 +5,16 @@ export const PRODUCTS = [
     name: 'Bloop Brigade',
     icon: 'bloop-brigade.png',
     path: '/bloop-brigade',
-    kind: 'Game · iPhone, iPad, Mac and Android',
+    kind: 'Game · PC, Mac, iPhone, iPad and Android',
     desc: 'A colourful co-op tower defence game for all ages. Pop the Grumbles, build towers and protect the Star Seed on a volcano island that grows every few waves, solo or with friends online.',
     // Search result title: what it is comes before who made it.
     seoTitle: 'Bloop Brigade - Co-op Tower Defence Game',
     image: '/bloop-brigade-og.jpg',
-    schema: { type: 'VideoGame', category: 'GameApplication', os: 'iOS, iPadOS, macOS, visionOS, Android', genre: 'Tower defense' },
+    schema: { type: 'VideoGame', category: 'GameApplication', os: 'Windows, macOS, iOS, iPadOS, visionOS, Android', genre: 'Tower defense' },
     stores: {
       appStore: 'https://apps.apple.com/app/bloop-brigade/id6818502459',
       googlePlay: 'https://play.google.com/store/apps/details?id=com.haztech.bloopbrigade',
+      epic: 'https://store.epicgames.com/p/bloop-brigade-5922cd',
     },
   },
   {
